@@ -1,0 +1,104 @@
+commit 747008f15c2a8eef24878b47988048e2061951bc
+Author: limi96 <mikelee199607@gmail.com>
+Date:   Mon Nov 1 12:54:15 2021 +0200
+
+    poistettu file1, uudelleen nimetty file2->file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 0b5516a4c62fe6fb7a8a1d9465556b3305f3f50c
+Author: limi96 <mikelee199607@gmail.com>
+Date:   Mon Nov 1 12:53:06 2021 +0200
+
+    commit
+
+ tiedostoja/file3 | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit caafb0856f94a8e7b0a134c461dafbacb602265a
+Author: limi96 <mikelee199607@gmail.com>
+Date:   Mon Nov 1 12:50:04 2021 +0200
+
+    Lisätty file1, file2, file3
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 753092ba10bd6bb7f38a54759a0a786f13733e9d
+Author: limi96 <mikelee199607@gmail.com>
+Date:   Mon Nov 1 11:43:15 2021 +0200
+
+    lisäys ja poisto eka.txt ja kolmas.txt
+
+ eka.txt    | 10 +++++++---
+ kolmas.txt |  6 ++++++
+ 2 files changed, 13 insertions(+), 3 deletions(-)
+
+commit f2bc3b83a1368b4cecb2348c3bd6c8308ed515a4
+Author: limi96 <mikelee199607@gmail.com>
+Date:   Mon Nov 1 11:41:30 2021 +0200
+
+    poistettu toinen.txt, tiedosto.txt uudelleen nimetty eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ toinen.txt              | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 63c306e4f9174d7da2ea10d4ad6140ec28cafa76
+Author: limi96 <mikelee199607@gmail.com>
+Date:   Mon Nov 1 11:37:57 2021 +0200
+
+    poistettu tekstiä tiedosto.txt
+
+ tiedosto.txt | 17 +----------------
+ 1 file changed, 1 insertion(+), 16 deletions(-)
+
+commit b5c574f3457e0bb66814469a9860a6d94ccb68ce
+Author: limi96 <mikelee199607@gmail.com>
+Date:   Mon Nov 1 11:37:25 2021 +0200
+
+    lisätty tekstiä tiedosto.txt
+
+ tiedosto.txt | 56 +++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 55 insertions(+), 1 deletion(-)
+
+commit 534e5b6529d7d1864c5af7aafa14bee174581970
+Author: limi96 <mikelee199607@gmail.com>
+Date:   Mon Nov 1 11:32:40 2021 +0200
+
+    lisätty stuff-hakemisto
+
+ stuff/asdf.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit ed90f237b8ac1d3e8e8b58ba48e57f3f282ea52a
+Author: limi96 <mikelee199607@gmail.com>
+Date:   Mon Nov 1 11:30:57 2021 +0200
+
+    kolmas.txt lisätty
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit aaad2e7341918935d40a76343f9e58d045b4b2e3
+Author: limi96 <mikelee199607@gmail.com>
+Date:   Mon Nov 1 11:26:12 2021 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit aad8a5ff4ef7c23c248b0e95a6e8e9c18fc3c573
+Author: limi96 <mikelee199607@gmail.com>
+Date:   Mon Nov 1 11:21:39 2021 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
