@@ -11,6 +11,9 @@ Sovelluksessa on vain peruskäyttäjiä.
 ## Käyttöliittymäluonnos
 
 
+<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kayttoliittymaluonnos.png" width="500">
+
+ 
 
 Sovellus alkaa kirjautumisnäkymästä, josta voi siirtyä joko suoraan "logged in" -osioon tai rekisteröintisivun kautta. "Logged in" -sivusta pääsee joko pelaamaan peliä tai katsomaan parhaimpia tuloksia "high scores"-sivulla. Häviämisen jälkeen voidaan siirtyä uuteen peliin, tarkastelemaan parhaimpia tuloksia tai kirjautumalla pois. 
 
