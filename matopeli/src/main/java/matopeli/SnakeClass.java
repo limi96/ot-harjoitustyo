@@ -48,7 +48,11 @@ public class SnakeClass {
         }
     }
 
-    public void moveUP(Point2D move)    {this.head.setTranslateY(this.head.getTranslateY() + move.getY());}
+
+    // move * 100 works 
+    // Need to find a method that makes it move constantly tho 
+    // 
+    public void moveUP(Point2D move)    {this.head.setTranslateY(this.head.getTranslateY() + move.getY());} 
     public void moveDOWN(Point2D move)  {this.head.setTranslateY(this.head.getTranslateY() + move.getY());}
     public void moveLEFT(Point2D move)  {this.head.setTranslateX(this.head.getTranslateX() + move.getX());}
     public void moveRIGHT(Point2D move) {this.head.setTranslateX(this.head.getTranslateX() + move.getX());}

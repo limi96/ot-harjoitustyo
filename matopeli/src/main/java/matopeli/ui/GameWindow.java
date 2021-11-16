@@ -50,6 +50,9 @@ public class GameWindow extends Application {
             @Override
             public void handle(long currentTime) {
 
+                
+
+
             }
             
         }.start();
