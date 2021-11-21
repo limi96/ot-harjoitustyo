@@ -30,20 +30,24 @@ public class SnakeClass {
         updateDirection();
     }   
 
+    public Direction getDirection() {
+        return this.direction; 
+    }
+
     public void updateDirection() {
         switch(this.direction) {
             case UP:
-                moveUP(new Point2D(0, -10));
+                moveUP(new Point2D(0, -2));
                 break; 
             case DOWN:
-                moveDOWN(new Point2D(0, 10));
+                moveDOWN(new Point2D(0, 2));
                 break; 
             case LEFT:
-                moveLEFT(new Point2D(-10, 0));
+                moveLEFT(new Point2D(-2, 0));
                 break; 
 
             case RIGHT:
-                moveRIGHT(new Point2D(10, 0));
+                moveRIGHT(new Point2D(2, 0));
                 break; 
         }
     }
