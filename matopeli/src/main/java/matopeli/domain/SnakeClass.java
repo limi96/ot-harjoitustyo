@@ -8,8 +8,9 @@ import javafx.geometry.Point2D;
 
 public class SnakeClass {
 
-    ArrayList<Circle> snake = new ArrayList<>(); 
+    public ArrayList<Circle> snake = new ArrayList<>(); 
 
+    //We're not actually using x and y... at all...
     int x; 
     int y; 
 
@@ -53,15 +54,10 @@ public class SnakeClass {
     }
 
 
-    // move * 100 works 
-    // Need to find a method that makes it move constantly tho 
-    // 
     public void moveUP(Point2D move)    {this.head.setTranslateY(this.head.getTranslateY() + move.getY());} 
     public void moveDOWN(Point2D move)  {this.head.setTranslateY(this.head.getTranslateY() + move.getY());}
     public void moveLEFT(Point2D move)  {this.head.setTranslateX(this.head.getTranslateX() + move.getX());}
     public void moveRIGHT(Point2D move) {this.head.setTranslateX(this.head.getTranslateX() + move.getX());}
 
-
-
-
 }
+
