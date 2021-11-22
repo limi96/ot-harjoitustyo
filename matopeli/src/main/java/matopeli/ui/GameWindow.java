@@ -11,8 +11,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-import matopeli.SnakeClass;
-import matopeli.Direction;
+import matopeli.domain.SnakeClass;
+import matopeli.domain.Direction;
 
 
 public class GameWindow extends Application {
@@ -32,13 +32,10 @@ public class GameWindow extends Application {
         root.setPrefHeight(WINDOW_HEIGHT);
         root.setPrefWidth(WINDOW_WIDTH);
 
-        Circle test = new Circle(WINDOW_WIDTH/2, WINDOW_HEIGHT/2, UNIT_SIZE/2);
-
-        SnakeClass snake = new SnakeClass(test); 
+        Circle head = new Circle(WINDOW_WIDTH/2, WINDOW_HEIGHT/2, UNIT_SIZE/2);
+        SnakeClass snake = new SnakeClass(head); 
         
         root.getChildren().add(snake.getSnakeHead());
-
-
         
         new AnimationTimer() {
             @Override
