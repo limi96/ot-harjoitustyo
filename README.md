@@ -16,6 +16,8 @@ Sovellus on kirjoitettu Javan versiolle 11 ja käyttää JavaFX:ää.
 
 [Työaikakirjanpito](https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
+[Arkkitehtuuri](https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 ## Sovelluksen käyttö
 
 HUOM! Siirry ensiksi matopeli-hakemistoon. Vasta sitten komennot toimivat. 

@@ -11,7 +11,7 @@ Sovelluksessa on vain peruskäyttäjiä.
 ## Käyttöliittymäluonnos
 
 
-<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kayttoliittymaluonnos.png" width="500">
+<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoliittymaluonnos.png" width="500">
 
  
 
