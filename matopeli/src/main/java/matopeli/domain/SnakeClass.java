@@ -30,7 +30,7 @@ public class SnakeClass {
     }
 
     public Circle getTail() {
-        return snake.get(getSnakeBody().size()-1);
+        return snake.get(getSnakeBody().size() - 1);
     }
 
     public void setDirection(Direction direction) {
@@ -62,17 +62,18 @@ public class SnakeClass {
         }
     }
 
-    public void moveUP(Point2D move, Circle part)    {part.setCenterY(part.getCenterY() + move.getY());} 
-    public void moveDOWN(Point2D move, Circle part)  {part.setCenterY(part.getCenterY() + move.getY());}
-    public void moveLEFT(Point2D move, Circle part)  {part.setCenterX(part.getCenterX() + move.getX());}
-    public void moveRIGHT(Point2D move, Circle part) {part.setCenterX(part.getCenterX() + move.getX());}
+    public void moveUP(Point2D move, Circle part)    { part.setCenterY(part.getCenterY() + move.getY()); } 
+    public void moveDOWN(Point2D move, Circle part)  { part.setCenterY(part.getCenterY() + move.getY()); }
+    public void moveLEFT(Point2D move, Circle part)  { part.setCenterX(part.getCenterX() + move.getX()); }
+    public void moveRIGHT(Point2D move, Circle part) { part.setCenterX(part.getCenterX() + move.getX()); }
 
-    public Boolean touchesFood(Food food) {
-        double x = Math.abs(food.getFood().getTranslateX()-this.head.getCenterX());
-        double y = Math.abs(food.getFood().getTranslateY()-this.head.getCenterY());
+    public Boolean touchesFood(Food food) { 
+ 
+        double x = Math.abs(food.getFood().getTranslateX() - this.head.getCenterX());
+        double y = Math.abs(food.getFood().getTranslateY() - this.head.getCenterY());
 
-        if (x <= 20 && y <= 20) 
-            return true; 
+        if (x <= 20 && y <= 20) { return true; }
+            
         return false; 
     }
 
