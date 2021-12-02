@@ -85,10 +85,10 @@ public class SnakeClassTest {
         snake.moveLEFT(new Point2D(-10,0),snake.getSnakeHead());
         snake.moveRIGHT(new Point2D(20,0),snake.getSnakeHead());
         
-        int y = (int) snake.getSnakeHead().getCenterY();
-        int x = (int) snake.getSnakeHead().getCenterX();
+        int y = (int) snake.getSnakeHead().getTranslateY();
+        int x = (int) snake.getSnakeHead().getTranslateX();
         
-        assertEquals(y, 110);
-        assertEquals(x, 110);
+        assertEquals(y, 10);
+        assertEquals(x, 10);
     }
 }
