@@ -14,11 +14,12 @@ import static org.junit.Assert.*;
 
 import javafx.scene.Scene; 
 import javafx.scene.layout.Pane; 
-import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.Group;
 import javafx.scene.paint.Color; 
+
 import matopeli.domain.SnakeClass;
 import matopeli.domain.Direction;
-import javafx.geometry.Point2D;
 
 
 /**
@@ -28,8 +29,9 @@ import javafx.geometry.Point2D;
 public class SnakeClassTest {
     
     Pane root;
-    Circle head;
+    Rectangle head;
     SnakeClass snake;
+    
     
     public SnakeClassTest() {
     }
@@ -50,8 +52,8 @@ public class SnakeClassTest {
         root = new Pane(); 
         root.setPrefHeight(WINDOW_HEIGHT);
         root.setPrefWidth(WINDOW_WIDTH);
-        head = new Circle(100, 100, UNIT_SIZE/2);
-        snake = new SnakeClass(head); 
+        head = new Rectangle(20, 20);
+        snake = new SnakeClass(head, new Group()); 
         root.getChildren().add(this.snake.getSnakeHead());
     }
     
@@ -80,15 +82,31 @@ public class SnakeClassTest {
     
     @Test
     public void allMovementsWork() {
-        snake.moveUP(new Point2D(0,-10),snake.getSnakeHead());
-        snake.moveDOWN(new Point2D(0,20),snake.getSnakeHead());
-        snake.moveLEFT(new Point2D(-10,0),snake.getSnakeHead());
-        snake.moveRIGHT(new Point2D(20,0),snake.getSnakeHead());
-        
-        int y = (int) snake.getSnakeHead().getTranslateY();
-        int x = (int) snake.getSnakeHead().getTranslateX();
-        
-        assertEquals(y, 10);
-        assertEquals(x, 10);
+
+        int oldY = (int) snake.getSnakeHead().getTranslateY();
+        int oldX = (int) snake.getSnakeHead().getTranslateX();
+
+        snake.setDirection(Direction.UP);
+
+        for (int i = 0; i < 6; i++) { 
+            snake.updateDirection();
+        }
+        snake.setDirection(Direction.DOWN);
+        snake.updateDirection();
+
+        snake.setDirection(Direction.LEFT);
+
+        for (int i = 0; i < 6; i++) { 
+            snake.updateDirection();
+        }
+
+        snake.setDirection(Direction.RIGHT);
+        snake.updateDirection();
+
+        int newY = (int) snake.getSnakeHead().getTranslateY();
+        int newX = (int) snake.getSnakeHead().getTranslateX();
+
+        assertEquals(oldY - newY, 10);
+        assertEquals(oldX - newX, 10);
     }
 }
