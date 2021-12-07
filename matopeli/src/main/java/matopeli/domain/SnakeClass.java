@@ -24,8 +24,9 @@ public class SnakeClass {
         growSnake();
     }
     public void increaseSpeed() {
-        if (this.speed < 20)
-        this.speed *= 1.05; 
+        if (this.speed < 20) {
+            this.speed *= 1.05; 
+        }
     }
 
     public Rectangle getSnakeHead() {
@@ -62,21 +63,19 @@ public class SnakeClass {
     }
 
     public Rectangle setNewPosition(Rectangle snakePart, double dx, double dy) {
-            Rectangle newSnakePart = new Rectangle(20,20);
-            double x = snakePart.getTranslateX()+dx;
-            double y = snakePart.getTranslateY()+dy;
+        Rectangle newSnakePart = new Rectangle(20, 20);
+        double x = snakePart.getTranslateX() + dx;
+        double y = snakePart.getTranslateY() + dy;
 
-            newSnakePart.setTranslateX(x);
-            newSnakePart.setTranslateY(y);
-            newSnakePart.setFill(Color.GREEN);
+        newSnakePart.setTranslateX(x);
+        newSnakePart.setTranslateY(y);
+        newSnakePart.setFill(Color.GREEN);
 
-            return newSnakePart;
+        return newSnakePart;
     }
 
     public void updateDirection() {
-
-        snake.remove(snake.size()-1);             
-
+        snake.remove(snake.size() - 1);             
         double dy = 0;
         double dx = 0; 
 
@@ -112,7 +111,7 @@ public class SnakeClass {
                 return true; 
             }
 
-            }        
+        }        
        
         return false; 
     }

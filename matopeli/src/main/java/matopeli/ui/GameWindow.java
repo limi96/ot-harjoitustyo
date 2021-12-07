@@ -1,7 +1,6 @@
 package matopeli.ui;
 
 import java.util.concurrent.atomic.AtomicInteger;
-
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -20,7 +19,7 @@ import matopeli.domain.SnakeClass;
 import matopeli.domain.Direction;
 import matopeli.domain.Food;
 
-public class GameWindow extends Application {
+public class GameWindow {
 
     public static int UNIT_SIZE = 20; 
     public static int WINDOW_HEIGHT = 40*UNIT_SIZE;
@@ -33,7 +32,9 @@ public class GameWindow extends Application {
     public static boolean gameOver;
     public static AtomicInteger score;
     
-    long systemTime = System.nanoTime();
+    public static Scene gameScene; 
+
+    public static long systemTime = System.nanoTime();
 
     public static void initialize() {
         Rectangle head = new Rectangle(UNIT_SIZE,UNIT_SIZE);
@@ -46,47 +47,32 @@ public class GameWindow extends Application {
 
         food = new Food(new Rectangle(UNIT_SIZE,UNIT_SIZE));     
         gameScore = new Text(0, 20, "Score : 0"); 
-        gameScore.setFill(Color.WHITE); 
+        gameScore.setFill(Color.BLUE); 
         gameScore.setStyle("-fx-font: 20 arial;");
         score = new AtomicInteger();
     }
 
-    @Override
-    public void start(Stage window) {
-        window.setTitle("Matopeli");
-        window.setResizable(false);
-        
+    public static Scene getGameScene() {
         Pane root = new Pane();
         root.setPrefSize(WINDOW_WIDTH,WINDOW_HEIGHT);
-        
+
         initialize();
-
-        new AnimationTimer() {
-            @Override
-            public void handle(long currentTime) {    
-                if (currentTime-systemTime > 1E7) {
-                    render();
-                    systemTime = currentTime;
-                }
-
-                if (gameOver) {
-                    this.stop();
-                }
-
-            }
-            
-        }.start();
-
+        startGame();
+        
         root.getChildren().add(snakeGroup);
         root.getChildren().add(food.getFood());
         root.getChildren().add(gameScore);
-
         root.setStyle("-fx-border-color: white");
-        
-        Scene scene = new Scene(root);
-        scene.setFill(Color.BLACK); 
 
-        scene.addEventFilter(KeyEvent.KEY_PRESSED, pressedKey -> {
+        gameScene = new Scene(root);
+        gameScene.setFill(Color.BLUE); 
+        addKeyListener(); 
+
+        return gameScene;
+    }
+
+    public static void addKeyListener() {
+        gameScene.addEventFilter(KeyEvent.KEY_PRESSED, pressedKey -> {
             if (pressedKey.getCode() == KeyCode.W && snake.getDirection() != Direction.UP && snake.getDirection() != Direction.DOWN) {
                 snake.setDirection(Direction.UP);
             }
@@ -106,9 +92,24 @@ public class GameWindow extends Application {
                 snake.increaseSpeed();
             }
         });
-        window.setScene(scene);
-        window.show();
     }
+
+    public static void startGame() {
+        AnimationTimer gameTimer = new AnimationTimer() {
+            @Override
+            public void handle(long currentTime) {    
+                if (currentTime-systemTime > 1E7) {
+                    render();
+                    systemTime = currentTime;
+                }
+
+                if (gameOver) {
+                    this.stop();
+                }
+            }
+        };gameTimer.start(); 
+    }
+
     public static void render() {
         
         snake.updateDirection();
@@ -125,10 +126,66 @@ public class GameWindow extends Application {
         }
     }
 
+    // @Override
+    // public void start(Stage window) {
+    //     window.setTitle("Matopeli");
+    //     window.setResizable(false);
+        
+    //     Pane root = new Pane();
+    //     root.setPrefSize(WINDOW_WIDTH,WINDOW_HEIGHT);
+        
+    //     initialize();
+
+    //     new AnimationTimer() {
+    //         @Override
+    //         public void handle(long currentTime) {    
+    //             if (currentTime-systemTime > 1E7) {
+    //                 render();
+    //                 systemTime = currentTime;
+    //             }
+
+    //             if (gameOver) {
+    //                 this.stop();
+    //             }
+    //         }
+            
+    //     }.start();
+
+    //     root.getChildren().add(snakeGroup);
+    //     root.getChildren().add(food.getFood());
+    //     root.getChildren().add(gameScore);
+    //     root.setStyle("-fx-border-color: white");
+        
+    //     Scene scene = new Scene(root);
+    //     scene.setFill(Color.BLACK); 
+
+    //     scene.addEventFilter(KeyEvent.KEY_PRESSED, pressedKey -> {
+    //         if (pressedKey.getCode() == KeyCode.W && snake.getDirection() != Direction.UP && snake.getDirection() != Direction.DOWN) {
+    //             snake.setDirection(Direction.UP);
+    //         }
+    //         if (pressedKey.getCode() == KeyCode.S && snake.getDirection() != Direction.DOWN && snake.getDirection() != Direction.UP) {
+    //             snake.setDirection(Direction.DOWN);
+    //         }
+    //         if (pressedKey.getCode() == KeyCode.A && snake.getDirection() != Direction.LEFT && snake.getDirection() != Direction.RIGHT) {
+    //             snake.setDirection(Direction.LEFT);
+    //         }
+    //         if (pressedKey.getCode() == KeyCode.D && snake.getDirection() != Direction.RIGHT && snake.getDirection() != Direction.LEFT) {
+    //             snake.setDirection(Direction.RIGHT);
+    //         }
+
+    //         //Key used for testing, Will be removed eventually
+    //         if (pressedKey.getCode() == KeyCode.O) {
+    //             snake.growSnake();
+    //             snake.increaseSpeed();
+    //         }
+    //     });
+    //     window.setScene(scene);
+    //     window.show();
+    // }
     
-    public static void main(String[] args) {
-        launch(GameWindow.class);
-    }
+    // public static void main(String[] args) {
+    //     launch(GameWindow.class);
+    // }
 
     
 

@@ -1,12 +1,11 @@
 package matopeli;
 
 import matopeli.ui.GameWindow;
-import matopeli.ui.UI;
+import matopeli.ui.Ui;
 
 public class Main {
     public static void main(String[] args) {
         // GameWindow.main(args);
-        UI.main(args);
-
+        Ui.main(args);
     }
 }

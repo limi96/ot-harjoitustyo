@@ -20,6 +20,7 @@ import javafx.scene.paint.Color;
 
 import matopeli.domain.SnakeClass;
 import matopeli.domain.Direction;
+import matopeli.domain.Food;
 
 
 /**
@@ -31,7 +32,6 @@ public class SnakeClassTest {
     Pane root;
     Rectangle head;
     SnakeClass snake;
-    
     
     public SnakeClassTest() {
     }
@@ -77,6 +77,67 @@ public class SnakeClassTest {
         assertEquals(snake.getDirection(), Direction.UP);
         snake.setDirection(Direction.DOWN);
         assertEquals(snake.getDirection(), Direction.DOWN);
+        
+    }
+    
+    @Test
+    public void collisionTests() {
+        
+        snake.getSnakeHead().setTranslateX(20);
+        snake.getSnakeHead().setTranslateY(20);   
+        assertEquals(snake.collideWithSelf(), false);
+        
+        Rectangle newPart = new Rectangle(20,20);
+        newPart.setTranslateX(20);
+        newPart.setTranslateY(20);        
+        snake.getSnakeBody().add(newPart);
+        
+        assertEquals(snake.collideWithSelf(), true);
+        assertEquals(snake.collideWithBorder(), false);
+        
+        snake.getSnakeHead().setTranslateX(-1000);
+        assertEquals(snake.collideWithBorder(), true);
+        snake.getSnakeHead().setTranslateX(2000);
+        assertEquals(snake.collideWithBorder(), true);
+        snake.getSnakeHead().setTranslateX(-800);
+        snake.getSnakeHead().setTranslateY(1000);
+        assertEquals(snake.collideWithBorder(), true);
+        snake.getSnakeHead().setTranslateY(-800);
+        assertEquals(snake.collideWithBorder(), true);
+    }
+    
+    @Test
+    public void increaseSpeedMakesSnakeFaster() {
+        
+        //First increase speed to maximum of 20
+        for (int i = 0; i < 65; i++) {
+            snake.increaseSpeed();
+        }
+        
+        int oldY = (int) snake.getSnakeHead().getTranslateY();
+        int oldX = (int) snake.getSnakeHead().getTranslateX();
+
+        snake.updateDirection();
+
+        int newY = (int) snake.getSnakeHead().getTranslateY();
+        int newX = (int) snake.getSnakeHead().getTranslateX();
+
+        assertEquals(oldY - newY, 0);
+        assertEquals(oldX - newX, -20);
+    }
+    
+    @Test
+    public void collisionWithFood() {
+        
+        Food food = new Food(new Rectangle(20, 20)); 
+        food.randomPosition();         
+        snake.getSnakeHead().setTranslateX(food.getFood().getTranslateX() - 20);
+        snake.getSnakeHead().setTranslateY(food.getFood().getTranslateY() + 20);
+        
+        assertEquals(snake.touchesFood(food), true);
+        snake.getSnakeHead().setTranslateX(10);
+        snake.getSnakeHead().setTranslateY(10);
+        assertEquals(snake.touchesFood(food), false);
         
     }
     

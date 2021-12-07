@@ -2,12 +2,16 @@ package matopeli.ui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class introSceneController implements Initializable {
-    private UI application; 
 
-    public void setApplication(UI application) {
+    private Ui application; 
+
+    public void setApplication(Ui application) {
         this.application = application; 
     }
 
@@ -15,6 +19,15 @@ public class introSceneController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void handleInitGame(ActionEvent event) {
+        application.setGameWindow();
+    }
+
+    @FXML public void start() {
+        
+    }
 
 
 }
