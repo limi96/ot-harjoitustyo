@@ -19,25 +19,26 @@ Sovellus alkaa kirjautumisnäkymästä, josta voi siirtyä joko suoraan "logged 
 
 ### Ennen kirjautumista:
 
+- :heavy_check_mark: Pelissä on näkymä, jossa on nappi, josta päästään pelaamaan peliä 
 - Käyttäjä voi luoda uuden tunnuksen
 - Käyttäjä voi kirjautua sisään jo olemassaolevilla tunnuksilla
 
 ### Kirjautumisen jälkeen:
 
-- Käyttäjä voi pelata peliä
+- :heavy_check_mark: Käyttäjä voi pelata peliä
 - Käyttäjä voi tarkistaa parhaimpia tuloksia
 - Käyttäjä voi kirjautua ulos
 
 ### Pelin aikana: 
 
-- Käyttäjä pääsee pelaamaan perinteistä matopeliä
+- :heavy_check_mark: Käyttäjä pääsee pelaamaan perinteistä matopeliä
 
 ### Matopelin toiminallisuudet:
 
-:white_check_mark: Käyttäjä pystyy ohjaamaan matoa WASD-näppäimillä
-:white_check_mark: Pistemäärä kasvaa madon syötyään ruuan, mato kasvaa ja madon nopeus kiihtyy
-:white_check_mark: Madon häntä seuraa päätä
-:white_check_mark: Peli loppuu, kun mato osuu reunoihin tai itseensä 
+- :heavy_check_mark: Käyttäjä pystyy ohjaamaan matoa WASD-näppäimillä
+- :heavy_check_mark: Pistemäärä kasvaa madon syötyään ruuan, mato kasvaa ja madon nopeus kiihtyy
+- :heavy_check_mark: Madon häntä seuraa päätä
+- :heavy_check_mark: Peli loppuu, kun mato osuu reunoihin tai itseensä 
 
 ### Pelin päätyttyä: 
 
