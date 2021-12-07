@@ -10,10 +10,7 @@ Sovelluksessa on vain peruskäyttäjiä.
 
 ## Käyttöliittymäluonnos
 
-
 <img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoliittymaluonnos.png" width="500">
-
- 
 
 Sovellus alkaa kirjautumisnäkymästä, josta voi siirtyä joko suoraan "logged in" -osioon tai rekisteröintisivun kautta. "Logged in" -sivusta pääsee joko pelaamaan peliä tai katsomaan parhaimpia tuloksia "high scores"-sivulla. Häviämisen jälkeen voidaan siirtyä uuteen peliin, tarkastelemaan parhaimpia tuloksia tai kirjautumalla pois. 
 
@@ -34,6 +31,13 @@ Sovellus alkaa kirjautumisnäkymästä, josta voi siirtyä joko suoraan "logged 
 ### Pelin aikana: 
 
 - Käyttäjä pääsee pelaamaan perinteistä matopeliä
+
+### Matopelin toiminallisuudet:
+
+:white_check_mark: Käyttäjä pystyy ohjaamaan matoa WASD-näppäimillä
+:white_check_mark: Pistemäärä kasvaa madon syötyään ruuan, mato kasvaa ja madon nopeus kiihtyy
+:white_check_mark: Madon häntä seuraa päätä
+:white_check_mark: Peli loppuu, kun mato osuu reunoihin tai itseensä 
 
 ### Pelin päätyttyä: 
 
