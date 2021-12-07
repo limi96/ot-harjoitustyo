@@ -13,9 +13,9 @@
 |  2.12   |  2h   | Mato kasvaa oikein, mutta ei liiku oikein                  |
 |  3.12   |  2h   | Mato kasvaa oikein ja liikkuu oikein                 |
 |  5.12   |  2h   | Reunojen lisääminen ja pelin päättyminen                |
-|  7.12   |  2h   | FXML:n tutustuminen                |
+|  7.12   |  5h   | FXML:n tutustuminen ja sovelluslogiikan integrointi FXML-käyttöliittymään                |
 
-| Yhteensä:   |  23h   |             -     |
+| Yhteensä:   |  26h   |             -     |
 
 
 
