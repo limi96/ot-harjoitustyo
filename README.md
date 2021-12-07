@@ -18,6 +18,10 @@ Sovellus on kirjoitettu Javan versiolle 11 ja käyttää JavaFX:ää.
 
 [Arkkitehtuuri](https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+## Release
+
+[Viikko 5 release](https://github.com/limi96/ot-harjoitustyo/releases/tag/viikko5)
+
 ## Sovelluksen käyttö
 
 HUOM! Siirry ensiksi matopeli-hakemistoon. Vasta sitten komennot toimivat. 
