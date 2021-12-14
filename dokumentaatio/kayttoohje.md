@@ -23,10 +23,14 @@ Huomioi, että  ```config.properties```-tiedosto on samassa hakemistossa.
 
 Ohjelman käynnistyessä pääset kirjautumis-näkymään. Kirjautumis-näkymä on samalla myös ensimmäinen näkymä.
 
+<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/ensimmainen.png">
+
 # Kirjautuminen
 
 Kirjautuminen tapahtuu syöttämällä käyttäjätunnus, salasana ja painamalla "kirjaudu"-painiketta. 
 Jos ei ole käyttäjätunnuksia, paina "rekisteröydy"-nappia. 
+
+<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kirjautuminen.png">
 
 # Rekisteröytyminen
 
@@ -35,9 +39,13 @@ Huomioi, että tietokanta ei salli samoja käyttäjätunnuksia, joten valitse to
 
 Paina lopuksi "takaisin"-nappia niin pääset takaisin kirjautumis-näkymään ja voit kirjautua sisään. 
 
+<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/rekisteroytyminen.png">
+
 # Pelin aloittaminen
 
 Kun olet kirjautunut sisään pääset aloitusnäkymään. Paina "Pelaa peliä :)"-painiketta aloittaaksesi pelin. 
+
+<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/pelinpelaaminen.png">
 
 
 
