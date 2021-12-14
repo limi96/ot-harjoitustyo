@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
 import org.junit.After;
@@ -63,20 +58,20 @@ public class SnakeClassTest {
     
     @Test
     public void startingDirection() {        
-        assertEquals(snake.getDirection(), Direction.RIGHT);
+        assertEquals(Direction.RIGHT, snake.getDirection());
     }
     
     @Test
     public void allDirectionsWork() {
 
         snake.setDirection(Direction.RIGHT);
-        assertEquals(snake.getDirection(), Direction.RIGHT);
+        assertEquals(Direction.RIGHT, snake.getDirection());
         snake.setDirection(Direction.LEFT);
-        assertEquals(snake.getDirection(), Direction.LEFT);
+        assertEquals(Direction.LEFT, snake.getDirection());
         snake.setDirection(Direction.UP);
-        assertEquals(snake.getDirection(), Direction.UP);
+        assertEquals(Direction.UP, snake.getDirection());
         snake.setDirection(Direction.DOWN);
-        assertEquals(snake.getDirection(), Direction.DOWN);
+        assertEquals(Direction.DOWN, snake.getDirection());
         
     }
     
@@ -85,25 +80,27 @@ public class SnakeClassTest {
         
         snake.getSnakeHead().setTranslateX(20);
         snake.getSnakeHead().setTranslateY(20);   
-        assertEquals(snake.collideWithSelf(), false);
+        assertEquals(false, snake.collideWithSelf());
         
         Rectangle newPart = new Rectangle(20,20);
         newPart.setTranslateX(20);
         newPart.setTranslateY(20);        
         snake.getSnakeBody().add(newPart);
         
-        assertEquals(snake.collideWithSelf(), true);
-        assertEquals(snake.collideWithBorder(), false);
+        assertEquals(true, snake.collideWithSelf());
+        assertEquals(false, snake.collideWithBorder());
         
         snake.getSnakeHead().setTranslateX(-1000);
-        assertEquals(snake.collideWithBorder(), true);
+        assertEquals(true, snake.collideWithBorder() );
+
         snake.getSnakeHead().setTranslateX(2000);
-        assertEquals(snake.collideWithBorder(), true);
+        assertEquals(true, snake.collideWithBorder() );
         snake.getSnakeHead().setTranslateX(-800);
         snake.getSnakeHead().setTranslateY(1000);
-        assertEquals(snake.collideWithBorder(), true);
+        assertEquals(true, snake.collideWithBorder() );
         snake.getSnakeHead().setTranslateY(-800);
-        assertEquals(snake.collideWithBorder(), true);
+        assertEquals(true, snake.collideWithBorder() );
+
     }
     
     @Test
@@ -122,8 +119,8 @@ public class SnakeClassTest {
         int newY = (int) snake.getSnakeHead().getTranslateY();
         int newX = (int) snake.getSnakeHead().getTranslateX();
 
-        assertEquals(oldY - newY, 0);
-        assertEquals(oldX - newX, -20);
+        assertEquals(0, oldY - newY);
+        assertEquals(-10, oldX - newX);
     }
     
     @Test
@@ -134,10 +131,10 @@ public class SnakeClassTest {
         snake.getSnakeHead().setTranslateX(food.getFood().getTranslateX() - 20);
         snake.getSnakeHead().setTranslateY(food.getFood().getTranslateY() + 20);
         
-        assertEquals(snake.touchesFood(food), true);
+        assertEquals(true, snake.touchesFood(food));
         snake.getSnakeHead().setTranslateX(10);
         snake.getSnakeHead().setTranslateY(10);
-        assertEquals(snake.touchesFood(food), false);
+        assertEquals(false, snake.touchesFood(food));
         
     }
     
@@ -167,7 +164,7 @@ public class SnakeClassTest {
         int newY = (int) snake.getSnakeHead().getTranslateY();
         int newX = (int) snake.getSnakeHead().getTranslateX();
 
-        assertEquals(oldY - newY, 10);
-        assertEquals(oldX - newX, 10);
+        assertEquals(10, oldY - newY);
+        assertEquals(10, oldX - newX);
     }
 }

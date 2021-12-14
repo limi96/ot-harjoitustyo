@@ -5,13 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="introPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="matopeli.ui.introSceneController">
+<AnchorPane fx:id="introPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matopeli.ui.IntroSceneController">
    <children>
-      <Button layoutX="211.0" layoutY="160.0" mnemonicParsing="false" onAction="#handleInitGame" prefHeight="102.0" prefWidth="192.0" text="Pelaa peliä :)" />
-      <Label layoutX="204.0" layoutY="58.0" text="Matopeli">
+      <Button layoutX="212.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleInitGame" prefHeight="38.0" prefWidth="177.0" text="Pelaa peliä :)" />
+      <Label layoutX="204.0" layoutY="43.0" text="Matopeli">
          <font>
             <Font size="45.0" />
          </font>
       </Label>
+      <Button layoutX="212.0" layoutY="211.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="38.0" prefWidth="177.0" text="Kirjaudu ulos" />
    </children>
 </AnchorPane>

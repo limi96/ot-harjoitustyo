@@ -24,9 +24,7 @@ public class SnakeClass {
         growSnake();
     }
     public void increaseSpeed() {
-        if (this.speed < 20) {
-            this.speed *= 1.05; 
-        }
+        this.speed += Math.pow(2, -this.speed/2);
     }
 
     public Rectangle getSnakeHead() {
@@ -49,13 +47,12 @@ public class SnakeClass {
         this.direction = direction; 
         updateDirection();
     }   
-
     public Direction getDirection() {
         return this.direction; 
     }
 
     public void growSnake() {
-        for (int i = 0; i < 10; i++) { 
+        for (int i = 0; i < 50; i++) { 
             Rectangle newSnakePart = setNewPosition(getTail(), 0, 0);
             getSnakeBody().add(newSnakePart);
             setTail(newSnakePart);
@@ -75,28 +72,34 @@ public class SnakeClass {
     }
 
     public void updateDirection() {
-        snake.remove(snake.size() - 1);             
-        double dy = 0;
-        double dx = 0; 
 
-        switch (this.direction) {
-            case UP:
-                dy = -this.speed;
-                break; 
-            case DOWN:
-                dy = this.speed;
-                break; 
-            case LEFT:
-                dx = -this.speed;
-                break; 
-            case RIGHT:
-                dx = this.speed;
-                break; 
+        for (int i = 0; i < this.speed; i++) { 
+            snake.remove(snake.size() - 1);             
+            double dy = 0;
+            double dx = 0; 
+    
+            switch (this.direction) {
+                case UP:
+                    dy = -1;
+                    break; 
+                case DOWN:
+                    dy = 1;
+                    break; 
+                case LEFT:
+                    dx = -1;
+                    break; 
+                case RIGHT:
+                    dx = 1;
+                    break; 
+            }
+            
+            Rectangle newTail = setNewPosition(getSnakeHead(), dx, dy);
+            snake.add(0, newTail);
+            this.head = (Rectangle) snake.get(0); 
+         
         }
         
-        Rectangle newTail = setNewPosition(getSnakeHead(), dx, dy);
-        snake.add(0, newTail);
-        this.head = (Rectangle) snake.get(0); 
+
     }
 
     public Boolean touchesFood(Food food) { 
