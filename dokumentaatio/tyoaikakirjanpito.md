@@ -21,7 +21,7 @@
 |  13.12  |  2h   |Testien kirjoittaminen Dao:lle|
 |  14.12  |  4h   |Dao:n ja Näkymien implementointi pääohjelmaan. Dokumentaation kirjoittaminen|
 
-| Yhteensä:   |  42h   |          |
+Yhteensä: 42h  
 
 
 

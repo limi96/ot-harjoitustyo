@@ -17,13 +17,15 @@ Ui-luokka alustaa RegisterSceneController-luokan ja asettaa rekisteröytymis. Sa
 Kun käyttäjä painaa nappia "Rekisteröidy" RegisterSceneControllerin ```handleRegistration()``` funktion kautta Dao-rajapinta käsittelee rekisteröytymisen SQLiten kautta metodilla ```registerUser()```. Tämä palauttaa totuusarvon RegisterSceneControllerille. 
 Käyttäjä voi painaa tämän jälkeen nappia "Takaisin", jolloin RegisterSceneController välittää Ui:lle asetettavaksi kirjautumisnäkymän metodilla ```setLoginScene```. Näkymä siirtyy kirjautumisnäkymään. 
 
+<img src ="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/rekisteroi%20-sekvenssikaavio.png">
 
-### Käyttäjän luominen
+### Käyttäjän Kirjautuminen
 
 Ui-luokka alustaa LoginSceneController-luokan ja asettaa kirjautumisnäkymän. Samalla LoginSceneController luokka alustaa Dao-rajapinnan "User"-toimintoja varten. 
 
 Kun käyttäjä painaa nappia "Kirjaudu" LoginSceneControllerin ```handleLogin()``` funktion kautta Dao-rajapinta käsittelee kirjautumisen SQLiten kautta metodilla ```loginSuccess()```. Tämä palauttaa totuusarvon LoginSceneControllerille. Jos vastaus oli true, niin LoginSceneController välittää Ui:lle asetettavaksi aloitusnäkymän metodilla ```setIntroScene```. Näkymä siirtyy aloitusnäkymään. 
 
+<img src ="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kirjautuminen-sekvenssikaavio.png">
 
 ### Varsinaisen matopeli-näkymän käynnistyminen
 
@@ -34,4 +36,4 @@ GameWindow-luokka alustaa SnakeClassin ja Food-luokkien kautta pelille tarpeelli
 Peli päivittyy jatkuvasti ``` render() ``` -metodin kautta, jolloin SnakeClass-olion kautta voidaan säätää maton nopeus, pituus ja suunta. Pelin loppuessa GameWindow kutsuu GameOverSceneController-luokan ```handleGameOver()```-metodia, jolloin Ui-luokka asettaa ```setGameOverScene```-metodin kautta pelin loppunäkymän. 
 
 
-<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/sekvenssikaavio.png">
+<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/matopeli-sekvenssikaavio.png">
