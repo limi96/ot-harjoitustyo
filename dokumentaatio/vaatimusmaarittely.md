@@ -20,14 +20,14 @@ Sovellus alkaa kirjautumisnäkymästä, josta voi siirtyä joko suoraan "logged 
 ### Ennen kirjautumista:
 
 - :heavy_check_mark: Pelissä on näkymä, jossa on nappi, josta päästään pelaamaan peliä 
-- Käyttäjä voi luoda uuden tunnuksen
-- Käyttäjä voi kirjautua sisään jo olemassaolevilla tunnuksilla
+- :heavy_check_mark: Käyttäjä voi luoda uuden tunnuksen
+- :heavy_check_mark: Käyttäjä voi kirjautua sisään jo olemassaolevilla tunnuksilla
 
 ### Kirjautumisen jälkeen:
 
 - :heavy_check_mark: Käyttäjä voi pelata peliä
 - Käyttäjä voi tarkistaa parhaimpia tuloksia
-- Käyttäjä voi kirjautua ulos
+- :heavy_check_mark: Käyttäjä voi kirjautua ulos
 
 ### Pelin aikana: 
 
@@ -43,6 +43,6 @@ Sovellus alkaa kirjautumisnäkymästä, josta voi siirtyä joko suoraan "logged 
 ### Pelin päätyttyä: 
 
 - Käyttäjä näkee oman tuloksensa. 
-- Käyttäjä voi pelata pelin uudestaan
+- :heavy_check_mark: Käyttäjä voi pelata pelin uudestaan
 - Käyttäjä voi siirtyä tarkistamaa parhaimpia tuloksia
-- Käyttäjä voi kirjautua ulos
+- :heavy_check_mark: Käyttäjä voi kirjautua ulos

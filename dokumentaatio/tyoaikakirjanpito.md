@@ -14,8 +14,14 @@
 |  3.12   |  2h   | Mato kasvaa oikein ja liikkuu oikein                 |
 |  5.12   |  2h   | Reunojen lisääminen ja pelin päättyminen                |
 |  7.12   |  5h   | FXML:n tutustuminen ja sovelluslogiikan integrointi FXML-käyttöliittymään                |
+|  9.12   |  3h   |loginScene, introScene,GameOverScene toteuttaminen|
+|  10.12  |  3h   |Edellämainittujen näkymien controller-luokkien toteutus|
+|  11.12  |  2h   |SQLite, UserDao, Dao toteutus|
+|  12.12  |  2h   |Dao:n toteuttaminen |
+|  13.12  |  2h   |Testien kirjoittaminen Dao:lle|
+|  14.12  |  4h   |Dao:n ja Näkymien implementointi pääohjelmaan. Dokumentaation kirjoittaminen|
 
-| Yhteensä:   |  26h   |             -     |
+| Yhteensä:   |  42h   |          |
 
 
 
