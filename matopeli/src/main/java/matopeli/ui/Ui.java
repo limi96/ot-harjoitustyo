@@ -25,7 +25,6 @@ public class Ui extends Application {
     @Override
     public void init() throws Exception {        
 
-
         try {
             FXMLLoader introSceneLoader = new FXMLLoader(getClass().getResource("/fxml/introScene.fxml"));   
             Parent introPane = introSceneLoader.load(); 

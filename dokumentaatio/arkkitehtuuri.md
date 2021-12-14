@@ -8,6 +8,20 @@
 
 <img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/sovelluslogiikka.png">
 
+## DAO:n implementointi ja tietokanta
+
+DAO:ta käsittelee matopeli.dao -paketti. Ohjelma käsittelee tietojen tallentamisen Dao-rajapinnan kautta, joka puolestaan taas toteuttaa toiminnat UserDao-luokan kautta. 
+
+DAO on toteutettu ohjelmassa tietokannan kautta. Tietokanta puolestaan taas on toteutettu SQLite:n kautta. SQLite toteutus UserDao-luokassa on tehty noudattaen Tietokantojen perusteet Kevät 2020 mooc-ohjetta, joka on saatavilla [tästä](https://tikape-k20.mooc.fi/sqlite-java).
+
+SQLite yhteys luodaan alustavasti käyttäen ```config.properties``` tiedostoa, jossa on 
+```
+databaseURL=jdbc:sqlite:gameDatabase.db
+testDatabaseURL=jdbc:sqlite:testDatabase.db
+```
+DatabaseURL-osoitetta käytetään sovelluksen käynnistyksen yhteydessä gameDatabase.db -tiedoston luomisessa, jos se ei ole valmiiksi kyseisessä hakemistossa. Tämän kautta UserDao-luokka luo taulukon "users", jossa on sarakkeina "user_id SERIAL PRIMARY KEY, username TEXT UNIQUE, password TEXT, score INTEGER". 
+
+
 ## Sekvenssikaaviot
 
 ### Käyttäjän rekisteröytyminen
