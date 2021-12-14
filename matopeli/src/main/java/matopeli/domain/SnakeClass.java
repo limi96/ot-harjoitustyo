@@ -7,13 +7,43 @@ import javafx.scene.Group;
 
 import java.lang.Math; 
 
+/**
+ * Luokka, joka toteuttaa kaikki matoon liittyvät toiminnot 
+ */
+
 public class SnakeClass {
 
+/**
+ *  Varsinainen "mato" toteutetaan listana.
+ * Lista käsitellään Group-luokan kautta, jotta voidaan yhdistää Pane-luokkaan GameWindow-luokassa
+ */
+
     ObservableList snake; 
+
+/**
+ * Madon pää, jonka avulla mato liikkuu
+ */
     Rectangle head;
+/**
+ *  Madon vartalo, joka seuraa päätä
+ */
     Rectangle tail; 
+/**
+ * Madon tämänhetkinen suunta
+ */
     Direction direction = Direction.RIGHT;
+/**
+ * Madon tämänhetkinen nopeus
+ */
     double speed;  
+
+/**
+ * Madon konstruktori. Saa parametrikseen madon pään ja alustavan snakeGroup.
+ * Käytössä on Group-luokka, jotta snake-lista pystytään liittämään GameWindow-luokan Pane-luokan root-paneeliin
+ * 
+ * @param head
+ * @param snakeGroup
+ */
      
     public SnakeClass(Rectangle head, Group snakeGroup) {
         this.snake = snakeGroup.getChildren();
@@ -23,6 +53,11 @@ public class SnakeClass {
         this.speed = 2; 
         growSnake();
     }
+
+/**
+ * Kasvattaa madon nopeuden.
+ * Nopeus kasvaa ensin paljon, mutta sitten nopeutuminen vähentyy
+ */
     public void increaseSpeed() {
         this.speed += Math.pow(2, -this.speed/2);
     }
@@ -39,18 +74,27 @@ public class SnakeClass {
         this.tail = tail; 
     }
 
-    public Rectangle getTail() {
+     public Rectangle getTail() {
         return (Rectangle) snake.get(getSnakeBody().size() - 1);
     }
-
+/**
+ * Määrittelee madon suunnan ja ottaa parametrikseen Direction-enumin arvon. 
+ * Suunnan päivityessä kutsutaan updateDirection()-metodia, jotta mato alkaa
+ * heti liikkumaan kyseiseen suuntaan
+ * @param direction
+ */
     public void setDirection(Direction direction) {
         this.direction = direction; 
         updateDirection();
     }   
+
     public Direction getDirection() {
         return this.direction; 
     }
-
+/**
+ * Kasvattaa madon asettemalla uusia neliötä osaksi snake ObservableList.listaa
+ * Tämän jälkeen uusi madon osa laitetaan madon hännäksi. 
+ */
     public void growSnake() {
         for (int i = 0; i < 50; i++) { 
             Rectangle newSnakePart = setNewPosition(getTail(), 0, 0);
@@ -58,7 +102,17 @@ public class SnakeClass {
             setTail(newSnakePart);
         }
     }
-
+/**
+ *  Tämä päivittää madon osan sijainnin.
+ *  
+ *  Madon osan sijainti päivittyy siten, että luodaan uusi samanlainen osa, joka on uudessa
+ *  sijainnissa
+ *  
+ * @param snakePart päivitettävä osa
+ * @param dx muutos X-akselin suuntaan
+ * @param dy muutos Y-akselin suuntaan
+ * @return palauttaa uuden neliön, joka on uudessa sijainnissa
+ */
     public Rectangle setNewPosition(Rectangle snakePart, double dx, double dy) {
         Rectangle newSnakePart = new Rectangle(20, 20);
         double x = snakePart.getTranslateX() + dx;
@@ -70,7 +124,13 @@ public class SnakeClass {
 
         return newSnakePart;
     }
-
+/**
+ * Päivitetään madon sijainti nopeuden mukaisesti. 
+ * Käyttää apunaan setNewPosition()-metodia, jotta madon sijainti päivittyy 
+ * Suuntana käytetään Direction-luokan enum-arvoja, jotta tiedetään, mihin suuntaan pitää päivittää.
+ * Madon sijainti päivitetään poistamalla häntä ja asettamalla uusi pää liikutettavaan suuntaan.
+ * Tämä toistetaan jatkuvasti, jolloin häntä seuraa päätä. 
+ */
     public void updateDirection() {
 
         for (int i = 0; i < this.speed; i++) { 
@@ -98,10 +158,12 @@ public class SnakeClass {
             this.head = (Rectangle) snake.get(0); 
          
         }
-        
-
     }
-
+/**
+ * Tarkistaa, jos madon pää on osunut ruokaan 
+ * @param food ruoka-olio
+ * @return palauttaa totuusarvon, että osuiko mato ruokaan
+ */
     public Boolean touchesFood(Food food) { 
  
         for (int i = 0; i < snake.size(); i++) { 
@@ -118,7 +180,14 @@ public class SnakeClass {
        
         return false; 
     }
-
+/**
+ * Tarkistaa, jos mato on osunut itseensä. 
+ * Metodi tarkistaa jokaisen madon osan sijainnin ja sen, että
+ * onko pään sijainti sama kuin jokin madon osista. Jos on, tiedetään, että mato on osunut itseensä. 
+ * 
+ * @return palauttaa, onko mato osunut itseensä 
+ * 
+ */
     public Boolean collideWithSelf() {
 
         for (int i = 1; i < snake.size(); i++) {     
@@ -138,7 +207,10 @@ public class SnakeClass {
     
         return false; 
     }
-
+/**
+ * Tarkistaa, jos mato on osunut pelinäkymän reunoihin.
+ * @return totuusarvo tarkistukselle
+ */
     public Boolean collideWithBorder() {
 
         double y = getSnakeHead().getTranslateY();

@@ -7,6 +7,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+
+/**
+ * Aloitus-näkymän toimintoja käsittelevä luokka
+ */
+
 public class IntroSceneController implements Initializable {
 
     private Ui application; 

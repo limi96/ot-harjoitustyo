@@ -17,6 +17,12 @@ import java.io.IOException;
 
 import matopeli.dao.UserDao;
 
+
+/**
+ * Kirjautumis-näkymän toimintoja käsittelevä luokka
+ */
+
+
 public class LoginSceneController implements Initializable {
 
     private Ui application; 
@@ -31,7 +37,13 @@ public class LoginSceneController implements Initializable {
     public void setApplication(Ui application) {
         this.application = application; 
     }
-
+/**
+* Aloittaa konfiguroinnin lataamalla tietokannan käyttäen config.properties-tiedostoa
+* 
+*
+* @param url url
+* @param rb  ResourceBundle
+*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         start();

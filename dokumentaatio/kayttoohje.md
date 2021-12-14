@@ -39,7 +39,7 @@ Huomioi, että tietokanta ei salli samoja käyttäjätunnuksia, joten valitse to
 
 Paina lopuksi "takaisin"-nappia niin pääset takaisin kirjautumis-näkymään ja voit kirjautua sisään. 
 
-<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/rekisteroytyminen.png">
+<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/rekisteroityminen.png">
 
 # Pelin aloittaminen
 

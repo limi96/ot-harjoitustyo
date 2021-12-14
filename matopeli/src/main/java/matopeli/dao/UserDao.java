@@ -6,10 +6,25 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+/**
+ * Toteuttaa toiminnot Dao-rajapinnalle
+ */
 public class UserDao implements Dao {
-
+/**
+ * Käytetään tietokanta-yhteyden luomiseen
+ */
     private Connection database; 
+/**
+ * Käytetään SQL-komentojen luomiseen
+ */
     private PreparedStatement statement;
+
+/**
+ * Luodaan tietokantayhteys muodostamalla databaseURL:n määrittelemä db.tiedosto
+ * Tämä tehdään DriverManager-luokan getConnection()-metodin kautta
+ * Sitten alustetaan tietokanta initializeTable()-metodin kautta 
+ * @param databaseURL osoite, johon luodaan tietokantayhteys
+ */
 
     public UserDao(String databaseURL) throws SQLException {
         database = DriverManager.getConnection(databaseURL);

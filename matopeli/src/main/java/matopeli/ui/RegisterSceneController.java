@@ -16,6 +16,10 @@ import java.io.IOException;
 
 import matopeli.dao.UserDao;
 
+/**
+ * Rekisteröinti-näkymän toimintoja käsittelevä luokka
+ */
+
 public class RegisterSceneController implements Initializable {
     private Ui application; 
     private UserDao user; 
@@ -28,9 +32,18 @@ public class RegisterSceneController implements Initializable {
     @FXML
     public Label uiMessage; 
 
+    
     public void setApplication(Ui application) {
         this.application = application; 
     }
+
+/**
+* Aloittaa konfiguroinnin lataamalla tietokannan käyttäen config.properties-tiedostoa
+* 
+*
+* @param url url
+* @param rb  ResourceBundle
+*/
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -53,6 +66,7 @@ public class RegisterSceneController implements Initializable {
             System.out.println("Could not load database!");
         }
     }    
+
 
     @FXML
     public void handleRegistration(ActionEvent event) {

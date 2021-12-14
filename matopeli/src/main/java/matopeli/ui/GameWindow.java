@@ -18,7 +18,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import matopeli.domain.Direction;
 
-
+/**
+ * Rakentaa varsinaisen matopeli-pelinäkymän 
+ * Tarvitsee GameOverControllerin, jotta voi olla Ui:hin yhteydessä pelin päättymisen jälkeen. 
+ * 
+ */
 public class GameWindow {
 
     public static int UNIT_SIZE = 20; 
@@ -39,10 +43,17 @@ public class GameWindow {
     public static Scene gameScene; 
     public static GameOverSceneController gameOverController; 
 
+/**
+ * Linkitetään GameOverController
+ */
+
     public GameWindow(GameOverSceneController controller) {
         gameOverController = controller; 
     }
     
+/**
+ * Alustetaan mato SnakeClass:in kautta ja ruoka Food-luokan kautta
+ */
     public static void initializeSnake() {
         Rectangle head = new Rectangle(UNIT_SIZE,UNIT_SIZE);
         head.setTranslateX(WINDOW_WIDTH/2);
@@ -53,6 +64,10 @@ public class GameWindow {
         food = new Food(new Rectangle(UNIT_SIZE,UNIT_SIZE)); 
     }
 
+/**
+ * Alustetaan juuripaneeli, joka on pohjana varsinaiselle pelinäkymälle
+ */
+
     public static void initializeRootPane() {
         root = new Pane();
         root.setPrefSize(WINDOW_WIDTH,WINDOW_HEIGHT);
@@ -61,14 +76,18 @@ public class GameWindow {
         root.getChildren().add(gameScore);
         root.setStyle("-fx-border-color: black");
     }
-
+/**
+ * Alustetaan pisteytystoiminto
+ */
     public static void initializeScore() {
         gameScore = new Text(0, 20, "Pisteet : 0"); 
         gameScore.setFill(Color.BLUE); 
         gameScore.setStyle("-fx-font: 20 arial;");
         score = new AtomicInteger();
     }
-
+/**
+ * Rakentaa pelinäkymän ja palauttaa pelinäkymän GameOverControllerille, joka vie sen Ui:lle
+ */
     public Scene getGameScene() {
         
         initializeSnake();
@@ -82,6 +101,11 @@ public class GameWindow {
         return gameScene;
     }
 
+/**
+ * Lisää näppäimistötoiminnot pelille 
+ * Käytössä on myös O-nappula, jonka avulla voi kasvattaa ja nopeuttaa matoa ilman, että syö
+ * Tämä on testaamista varten, jos haluaa nopeasti testata peliä. 
+ */
     public static void addKeyListener() {
 
         gameScene.addEventFilter(KeyEvent.KEY_PRESSED, pressedKey -> {
@@ -98,14 +122,17 @@ public class GameWindow {
                 snake.setDirection(Direction.RIGHT);
             }
 
-            //Key used for testing, Will be removed eventually
+            
             if (pressedKey.getCode() == KeyCode.O) {
                 snake.growSnake();
                 snake.increaseSpeed();
             }
         });
     }
-
+/**
+ * Käynnistetään peli AnimationTimer-luokan avulla. 
+ * Peli päivittyy render()-metodin kautta. 
+ */
     public static void startGame() {
         gameOver = false; 
 
@@ -124,6 +151,11 @@ public class GameWindow {
         gameTimer.start(); 
     }
 
+/**
+ * Päivittää pelin tapahtumat. 
+ * Jos häviää, välittää gameOverControllerille viestin, että peli pitää lopettaa.
+ * Asettaa samalla gameOver = true, jotta startGame()-metodi pysäyttää AnimationTimerin ja peli päättyy. 
+ */
     public static void render() {        
         
         snake.updateDirection();
@@ -140,7 +172,9 @@ public class GameWindow {
             gameOver = true; 
         }
     }
-
+/**
+ * Kasvatetaan pisteytystä 
+ */
     public static void incrementScore() {
         gameScore.setText("Pisteet : " + score.addAndGet(100));
     }

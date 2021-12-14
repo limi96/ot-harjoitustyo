@@ -6,6 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+
+/**
+ * Pelinloppu-näkymän toimintoja käsittelevä luokka
+ * Alustaa myös gameWindow-luokka Ui:lle
+ */
 public class GameOverSceneController implements Initializable {
     private Ui application; 
     public GameWindow gameWindow; 
