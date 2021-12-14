@@ -59,7 +59,7 @@ public class SnakeClass {
  * Nopeus kasvaa ensin paljon, mutta sitten nopeutuminen vähentyy
  */
     public void increaseSpeed() {
-        this.speed += Math.pow(2, -this.speed/2);
+        this.speed += Math.pow(2, -this.speed / 2);
     }
 
     public Rectangle getSnakeHead() {
@@ -74,7 +74,7 @@ public class SnakeClass {
         this.tail = tail; 
     }
 
-     public Rectangle getTail() {
+    public Rectangle getTail() {
         return (Rectangle) snake.get(getSnakeBody().size() - 1);
     }
 /**

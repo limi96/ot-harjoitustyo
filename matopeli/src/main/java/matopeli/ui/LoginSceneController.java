@@ -51,8 +51,7 @@ public class LoginSceneController implements Initializable {
         
         try {
             property.load(new FileInputStream("config.properties"));
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println("Failed to load Config.properties");
         }
 
@@ -60,8 +59,7 @@ public class LoginSceneController implements Initializable {
 
         try {
             user = new UserDao(databaseURL);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             System.out.println("Could not load database!");
         }
     }    
@@ -74,8 +72,7 @@ public class LoginSceneController implements Initializable {
         
         if (user.loginSuccess(username, password)) {
             application.setIntroScene();
-        }        
-        else {
+        } else {
             errorMessage.setText("Kirjautuminen epäonnistui!"); 
         }
     }

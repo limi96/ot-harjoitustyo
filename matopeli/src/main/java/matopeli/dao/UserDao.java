@@ -53,9 +53,8 @@ public class UserDao implements Dao {
             boolean success = statement.executeUpdate() > 0; 
             statement.close();
             return success; 
-        }
 
-        catch(Exception e) {
+        } catch(Exception e) {
             System.out.println("Registration error! " + e);
         }
         return false; 
@@ -75,9 +74,7 @@ public class UserDao implements Dao {
             ResultSet results = statement.executeQuery();
             success = results.next(); 
             statement.close();
-        }
-
-        catch(Exception e) {
+        } catch(Exception e) {
             System.out.println("Login Error! " + e);
         }
 
