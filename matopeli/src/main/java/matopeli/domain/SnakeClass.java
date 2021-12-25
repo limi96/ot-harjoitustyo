@@ -13,44 +13,50 @@ import java.lang.Math;
 
 public class SnakeClass {
 
+    public Color snakeColor; 
 /**
  *  Varsinainen "mato" toteutetaan listana.
  * Lista käsitellään Group-luokan kautta, jotta voidaan yhdistää Pane-luokkaan GameWindow-luokassa
  */
 
-    ObservableList snake; 
+    public ObservableList snake; 
 
 /**
  * Madon pää, jonka avulla mato liikkuu
  */
-    Rectangle head;
+    public Rectangle head;
 /**
  *  Madon vartalo, joka seuraa päätä
  */
-    Rectangle tail; 
+    public Rectangle tail; 
 /**
  * Madon tämänhetkinen suunta
  */
-    Direction direction = Direction.RIGHT;
+    public Direction direction = Direction.RIGHT;
 /**
  * Madon tämänhetkinen nopeus
  */
-    double speed;  
+    public double speed;  
 
 /**
- * Madon konstruktori. Saa parametrikseen madon pään ja alustavan snakeGroup.
+ * Madon konstruktori. Saa parametrikseen madon pään ja alustavan snakeGroup sekä madon halutun väri.
  * Käytössä on Group-luokka, jotta snake-lista pystytään liittämään GameWindow-luokan Pane-luokan root-paneeliin
  * 
- * @param head
- * @param snakeGroup
+ * @param head Madolle luotu pää
+ * @param snakeGroup Madolle luotu tallennuslista, joka on kytköksissä GameWindow-luokkaan
+ * @param snakeColor Ui:n asettama haluttu madon väri
  */
      
-    public SnakeClass(Rectangle head, Group snakeGroup) {
+    public SnakeClass(Rectangle head, Group snakeGroup, Color snakeColor) {
         this.snake = snakeGroup.getChildren();
         this.head = head; 
         this.tail = head;          
+        this.snakeColor = snakeColor; 
         this.snake.add(this.head); 
         this.speed = 2; 
+        
+        head.setFill(snakeColor);
+        tail.setFill(snakeColor); 
         growSnake();
     }
 
@@ -62,21 +68,6 @@ public class SnakeClass {
         this.speed += Math.pow(2, -this.speed / 2);
     }
 
-    public Rectangle getSnakeHead() {
-        return (Rectangle) this.snake.get(0); 
-    }
-
-    public ObservableList getSnakeBody() {
-        return snake; 
-    }
-
-    public void setTail(Rectangle tail) {
-        this.tail = tail; 
-    }
-
-    public Rectangle getTail() {
-        return (Rectangle) snake.get(getSnakeBody().size() - 1);
-    }
 /**
  * Määrittelee madon suunnan ja ottaa parametrikseen Direction-enumin arvon. 
  * Suunnan päivityessä kutsutaan updateDirection()-metodia, jotta mato alkaa
@@ -98,6 +89,7 @@ public class SnakeClass {
     public void growSnake() {
         for (int i = 0; i < 50; i++) { 
             Rectangle newSnakePart = setNewPosition(getTail(), 0, 0);
+            newSnakePart.setFill(snakeColor);
             getSnakeBody().add(newSnakePart);
             setTail(newSnakePart);
         }
@@ -120,7 +112,7 @@ public class SnakeClass {
 
         newSnakePart.setTranslateX(x);
         newSnakePart.setTranslateY(y);
-        newSnakePart.setFill(Color.GREEN);
+        newSnakePart.setFill(snakeColor);
 
         return newSnakePart;
     }
@@ -194,17 +186,16 @@ public class SnakeClass {
 
             Rectangle snakePart = (Rectangle) snake.get(i);
             
-            double partY = snakePart.getTranslateY();
-            double partX = snakePart.getTranslateX();
-            double headY = getSnakeHead().getTranslateY();
-            double headX = getSnakeHead().getTranslateX();
+            int partY = (int) snakePart.getTranslateY();
+            int partX = (int) snakePart.getTranslateX();
+            int headY = (int) getSnakeHead().getTranslateY();
+            int headX = (int) getSnakeHead().getTranslateX();
 
-            if (partY == headY && partX == headX) {            
+            if (partY == headY && partX == headX) {        
                 return true; 
             }
-
         }
-    
+
         return false; 
     }
 /**
@@ -221,5 +212,21 @@ public class SnakeClass {
         }
         return false; 
     }
+
+    public Rectangle getSnakeHead() {
+        return (Rectangle) this.snake.get(0); 
+    }
+
+    public ObservableList getSnakeBody() {
+        return snake; 
+    }
+
+    public void setTail(Rectangle tail) {
+        this.tail = tail; 
+    }
+
+    public Rectangle getTail() {
+        return (Rectangle) snake.get(getSnakeBody().size() - 1);
+    }    
 }
 

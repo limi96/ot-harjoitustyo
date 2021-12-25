@@ -1,19 +1,17 @@
 package domain;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import javafx.scene.Scene; 
-import javafx.scene.layout.Pane; 
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.Group;
-import javafx.scene.paint.Color; 
 
 import matopeli.domain.SnakeClass;
+import matopeli.ui.GameWindow;
 import matopeli.domain.Direction;
 import matopeli.domain.Food;
 
@@ -28,19 +26,13 @@ public class SnakeClassTest {
     Rectangle head;
     SnakeClass snake;
     
+
     public SnakeClassTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-        
+            
     @Before
     public void setUp() {
+    
         int UNIT_SIZE = 20; 
         int WINDOW_HEIGHT = 30*UNIT_SIZE;
         int WINDOW_WIDTH  = 30*UNIT_SIZE;
@@ -48,7 +40,7 @@ public class SnakeClassTest {
         root.setPrefHeight(WINDOW_HEIGHT);
         root.setPrefWidth(WINDOW_WIDTH);
         head = new Rectangle(20, 20);
-        snake = new SnakeClass(head, new Group()); 
+        snake = new SnakeClass(head, new Group(), Color.GREEN); 
         root.getChildren().add(this.snake.getSnakeHead());
     }
     
@@ -59,6 +51,25 @@ public class SnakeClassTest {
     @Test
     public void startingDirection() {        
         assertEquals(Direction.RIGHT, snake.getDirection());
+    }
+
+    @Test
+    public void snakeColorIsUniform() {
+        snake.growSnake();
+        
+        for (Object body : snake.getSnakeBody()) {
+            assertEquals(snake.getSnakeHead().getFill(), ((Rectangle) body).getFill());
+        }
+
+    }
+
+    @Test 
+    public void uiSetsCorrectColors() throws Exception {
+        
+        GameWindow.initializeSnake(Color.PINK, Color.PINK);
+        SnakeClass gameWindowSnake = GameWindow.snake; 
+        assertEquals(Color.PINK, gameWindowSnake.getSnakeHead().getFill());
+    
     }
     
     @Test
@@ -126,7 +137,7 @@ public class SnakeClassTest {
     @Test
     public void collisionWithFood() {
         
-        Food food = new Food(new Rectangle(20, 20)); 
+        Food food = new Food(new Rectangle(20, 20), Color.RED); 
         food.randomPosition();         
         snake.getSnakeHead().setTranslateX(food.getFood().getTranslateX() - 20);
         snake.getSnakeHead().setTranslateY(food.getFood().getTranslateY() + 20);

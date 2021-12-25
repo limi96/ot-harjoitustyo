@@ -14,17 +14,17 @@
             <Font size="45.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordField" layoutX="204.0" layoutY="170.0" />
       <TextField fx:id="usernameField" layoutX="204.0" layoutY="107.0" />
       <Label layoutX="204.0" layoutY="82.0" text="Käyttäjätunnus" />
       <Label layoutX="204.0" layoutY="148.0" prefHeight="16.0" prefWidth="67.0" text="Salasana" />
-      <PasswordField fx:id="passwordRepeatField" layoutX="204.0" layoutY="228.0" />
       <Label layoutX="204.0" layoutY="205.0" prefHeight="16.0" prefWidth="162.0" text="Salasana uudestaan" />
-      <Label fx:id="uiMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="72.0" layoutY="340.0" prefHeight="40.0" prefWidth="436.0">
+      <Label fx:id="uiMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="340.0" prefHeight="55.0" prefWidth="585.0" wrapText="true">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font></Label>
-      <Button layoutX="204.0" layoutY="270.0" mnemonicParsing="false" onAction="#handleRegistration" prefHeight="24.0" prefWidth="171.0" text="Rekisteröidy" />
-      <Button layoutX="204.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleGoToLogin" prefHeight="24.0" prefWidth="171.0" text="Takaisin" />
+      <PasswordField fx:id="passwordField" layoutX="205.0" layoutY="176.0" />
+      <PasswordField fx:id="passwordRepeatField" layoutX="205.0" layoutY="228.0" />
+      <Button layoutX="211.0" layoutY="265.0" mnemonicParsing="false" onAction="#handleRegistration" prefHeight="34.0" prefWidth="162.0" text="Rekisteröidy" />
+      <Button layoutX="210.0" layoutY="299.0" mnemonicParsing="false" onAction="#handleGoToLogin" prefHeight="34.0" prefWidth="162.0" text="Takaisin" />
    </children>
 </AnchorPane>

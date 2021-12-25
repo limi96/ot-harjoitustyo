@@ -2,7 +2,7 @@ package matopeli.dao;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.ArrayList;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -26,7 +26,7 @@ public class UserDao implements Dao {
  * @param databaseURL osoite, johon luodaan tietokantayhteys
  */
 
-    public UserDao(String databaseURL) throws SQLException {
+    public UserDao(String databaseURL) throws Exception {
         database = DriverManager.getConnection(databaseURL);
         this.initializeTable();
     }
@@ -36,47 +36,86 @@ public class UserDao implements Dao {
     }
 
     @Override
-    public void initializeTable() throws SQLException {
-        String sqlCommand = "CREATE TABLE IF NOT EXISTS users (user_id SERIAL PRIMARY KEY, username TEXT UNIQUE, password TEXT, score INTEGER)";
+    public void initializeTable() throws Exception {
+        String sqlCommand = "CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, score INTEGER)";
         statement = database.prepareStatement(sqlCommand);
         statement.executeUpdate();
         statement.close();
     }
     
     @Override
-    public boolean registerUser(String username, String password) {
-        try {
-            String sqlCommand = "INSERT INTO users (username, password) VALUES (?,?)";
+    public boolean registerUser(String username, String password) throws Exception {
+        boolean success = false; 
+
+        if (!checkUserExists(username)) {
+            String sqlCommand = "INSERT INTO users (username, password, score) VALUES (?,?,0)";
             statement = database.prepareStatement(sqlCommand);
             statement.setString(1, username); 
             statement.setString(2, password); 
-            boolean success = statement.executeUpdate() > 0; 
+            success = statement.executeUpdate() > 0;
             statement.close();
-            return success; 
-
-        } catch(Exception e) {
-            System.out.println("Registration error! " + e);
+        } else {
+            return false; 
         }
-        return false; 
+        
+        return success; 
+    }
+    @Override
+    public boolean checkUserExists(String username) throws Exception {
+        boolean success = false; 
+
+        String sqlCommand = "SELECT * FROM users WHERE username =?";
+        statement = database.prepareStatement(sqlCommand);
+        statement.setString(1, username); 
+        
+        ResultSet results = statement.executeQuery();
+        success = results.next(); 
+        statement.close();
+
+        return success; 
     }
 
     @Override
-    public boolean loginSuccess(String username, String password) {
+    public void setNewScore(String username, int score) throws Exception {
+
+        String sqlCommand = "UPDATE users as U SET score = MAX(?, (SELECT score FROM users WHERE username =?)) WHERE U.username =?";
+        statement = database.prepareStatement(sqlCommand);
+        statement.setInt(1, score);
+        statement.setString(2, username); 
+        statement.setString(3, username); 
+        statement.executeUpdate();
+        statement.close();
+    }
+
+    @Override
+    public ArrayList<String> fetchHighScores() throws Exception {
+        ArrayList<String> resultsList = new ArrayList<>(); 
+        String sqlCommand = "SELECT username, score FROM users ORDER BY score DESC LIMIT 5";
+        statement = database.prepareStatement(sqlCommand);            
+        ResultSet results = statement.executeQuery();
+                    
+
+        while (results.next()) {
+            resultsList.add(results.getString(1) + "," + results.getString(2));
+        }
+
+        statement.close();
+        
+        return resultsList; 
+    }
+
+    @Override
+    public boolean loginSuccess(String username, String password) throws Exception {
 
         boolean success = false; 
-
-        try {
-            String sqlCommand = "SELECT * FROM users WHERE username =? AND password =?";
-            statement = database.prepareStatement(sqlCommand);
-            statement.setString(1, username); 
-            statement.setString(2, password); 
-            
-            ResultSet results = statement.executeQuery();
-            success = results.next(); 
-            statement.close();
-        } catch(Exception e) {
-            System.out.println("Login Error! " + e);
-        }
+        String sqlCommand = "SELECT * FROM users WHERE username =? AND password =?";
+        statement = database.prepareStatement(sqlCommand);
+        statement.setString(1, username); 
+        statement.setString(2, password); 
+        
+        ResultSet results = statement.executeQuery();
+        success = results.next(); 
+        statement.close();
 
         return success; 
     }

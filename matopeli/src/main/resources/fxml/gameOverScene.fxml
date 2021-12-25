@@ -5,14 +5,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matopeli.ui.GameOverSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matopeli.ui.GameSceneController">
    <children>
-      <Label layoutX="195.0" layoutY="94.0" text="Peli loppui :(">
+      <Label layoutX="205.0" layoutY="58.0" text="Peli päättyi :(">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Button layoutX="227.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleRestartGame" prefHeight="63.0" prefWidth="146.0" text="Aloita uusi peli!" />
-      <Button layoutX="227.0" layoutY="234.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="63.0" prefWidth="146.0" text="Kirjaudu ulos" />
+      <Button layoutX="222.0" layoutY="223.0" mnemonicParsing="false" onAction="#handleRestartGame" prefHeight="31.0" prefWidth="156.0" text="Aloita uusi peli!" />
+      <Label fx:id="scoreLabel" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="156.0" layoutY="110.0" prefHeight="82.0" prefWidth="289.0" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="222.0" layoutY="266.0" mnemonicParsing="false" onAction="#handleToHighScores" prefHeight="31.0" prefWidth="156.0" text="Katso highscoret!" />
+      <Button layoutX="222.0" layoutY="341.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="31.0" prefWidth="156.0" text="Kirjaudu ulos" />
+      <Button layoutX="222.0" layoutY="304.0" mnemonicParsing="false" onAction="#handleGoToIntro" prefHeight="31.0" prefWidth="156.0" text="Takaisin introon!" />
    </children>
 </AnchorPane>

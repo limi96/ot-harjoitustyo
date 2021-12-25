@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="introPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matopeli.ui.IntroSceneController">
+<AnchorPane fx:id="introPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="matopeli.ui.IntroSceneController">
    <children>
-      <Button layoutX="212.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleInitGame" prefHeight="38.0" prefWidth="177.0" text="Pelaa peliä :)" />
-      <Label layoutX="204.0" layoutY="43.0" text="Matopeli">
+      <Label layoutX="324.0" layoutY="47.0" text="Intro">
          <font>
             <Font size="45.0" />
          </font>
       </Label>
-      <Button layoutX="212.0" layoutY="211.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="38.0" prefWidth="177.0" text="Kirjaudu ulos" />
+      <Label layoutX="446.0" layoutY="146.0" text="Valitse madon väri!" />
+      <Label layoutX="447.0" layoutY="286.0" text="Valitse taustan väri!" />
+      <Label layoutX="446.0" layoutY="216.0" text="Valitse ruuan väri!" />
+      <Button layoutX="150.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleInitGame" prefHeight="38.0" prefWidth="177.0" text="Pelaa peliä :)" />
+      <Button layoutX="150.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleToHighScores" prefHeight="38.0" prefWidth="177.0" text="Katso highscoret!" />
+      <Button layoutX="151.0" layoutY="283.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="38.0" prefWidth="177.0" text="Kirjaudu ulos" />
+      <ColorPicker fx:id="snakePickColor" layoutX="438.0" layoutY="175.0">
+         <value>
+            <Color green="0.501960813999176" />
+         </value>
+      </ColorPicker>
+      <ColorPicker fx:id="foodPickColor" layoutX="438.0" layoutY="245.0">
+         <value>
+            <Color red="1.0" />
+         </value>
+      </ColorPicker>
+      <RadioButton fx:id="blackRadio" layoutX="438.0" layoutY="321.0" mnemonicParsing="false" selected="true" text="Musta">
+         <toggleGroup>
+            <ToggleGroup fx:id="colorGroup" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="whiteRadio" layoutX="509.0" layoutY="321.0" mnemonicParsing="false" text="Valkonen" toggleGroup="$colorGroup" />
+      <Label layoutX="438.0" layoutY="348.0" prefHeight="119.0" prefWidth="164.0" text="Älä valitse madon tai ruuan väriksi mustaa tai valkosta (taustan värejä) tai muuten madon ja ruuan värit palaavat oletusarvoihin!" wrapText="true" />
+      <Label layoutX="150.0" layoutY="330.0" prefHeight="119.0" prefWidth="193.0" text="Peli toimii WASD -ja nuolinäppäimillä. Pelin voi tauottaa p-näppäimellä" wrapText="true" />
    </children>
 </AnchorPane>

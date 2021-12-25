@@ -5,9 +5,7 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 
 <suppressions>
-    <suppress files="matopeli.ui.GameWindow.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="matopeli.ui.introSceneController.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="matopeli.ui.Ui.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="matopeli.ui.*" checks="[a-zA-Z0-9]*"/>
     <suppress files="matopeli.Main.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="matopeli.Main" checks="[a-zA-Z0-9]*"/>
 </suppressions>

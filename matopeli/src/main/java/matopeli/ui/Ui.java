@@ -1,83 +1,74 @@
 package matopeli.ui;
 
-
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.Parent;
 import javafx.fxml.FXMLLoader;
 
-
 public class Ui extends Application {
 
-    private Stage stage;
-    private Scene introScene;
-    private Scene loginScene;
-    private Scene registerScene;
-    private Scene gameScene;
-    private Scene gameOverScene;
-    private GameOverSceneController gameOverController;
+    public Stage stage;
+    public Scene introScene;
+    public Scene loginScene;
+    public Scene registerScene;
+    public Scene highScoresScene;
+    public Scene gameScene;
+    public Scene gameOverScene;
 
-    public static void initializeDAO() {
+    public GameSceneController gameSceneController;
+    public LoginSceneController loginController; 
 
-    }
+    /**
+     * Luo Ui-pohjan kaikille näkymien luokille. Käsittelee näkymien latauksen sekä siirtymisen näkymästä toiseen
+     * @throws Exception tapahtuu, jos tiedosto ei lataudu oikein tai jos FXML-tiedostossa on vikoja
+     */
 
     @Override
     public void init() throws Exception {        
 
-        try {
-            FXMLLoader introSceneLoader = new FXMLLoader(getClass().getResource("/fxml/introScene.fxml"));   
-            Parent introPane = introSceneLoader.load(); 
-            IntroSceneController introController = introSceneLoader.getController(); 
-            introController.setApplication(this);
-            introScene = new Scene(introPane);
-        }
-        catch (Exception e) {
-            System.out.println("IntroScene Error: " + e);
-        }
+        FXMLLoader introSceneLoader = new FXMLLoader(getClass().getResource("/fxml/introScene.fxml"));   
+        Parent introPane = introSceneLoader.load(); 
+        IntroSceneController introController = introSceneLoader.getController(); 
+        introController.setApplication(this);
+        introScene = new Scene(introPane);
 
-        try {
-            FXMLLoader loginSceneLoader = new FXMLLoader(getClass().getResource("/fxml/loginScene.fxml"));   
-            Parent loginPane = loginSceneLoader.load(); 
-            LoginSceneController loginController = loginSceneLoader.getController(); 
-            loginController.setApplication(this);
-            loginScene = new Scene(loginPane);
-        }
-        catch (Exception e) {
-            System.out.println("LoginScene Error: " + e);
-        }
+        FXMLLoader loginSceneLoader = new FXMLLoader(getClass().getResource("/fxml/loginScene.fxml"));   
+        Parent loginPane = loginSceneLoader.load(); 
+        loginController = loginSceneLoader.getController(); 
+        loginController.setApplication(this);
+        loginScene = new Scene(loginPane);
 
-        try {
-            FXMLLoader registerSceneLoader = new FXMLLoader(getClass().getResource("/fxml/registerScene.fxml"));   
-            Parent registerPane = registerSceneLoader.load(); 
-            RegisterSceneController registerController = registerSceneLoader.getController(); 
-            registerController.setApplication(this);
-            registerScene = new Scene(registerPane);
-        }
-        catch (Exception e) {
-            System.out.println("RegisterScene Error: " + e);
-        }
+        FXMLLoader registerSceneLoader = new FXMLLoader(getClass().getResource("/fxml/registerScene.fxml"));   
+        Parent registerPane = registerSceneLoader.load(); 
+        RegisterSceneController registerController = registerSceneLoader.getController(); 
+        registerController.setApplication(this, loginController);
+        registerScene = new Scene(registerPane);
 
-        try {
-            FXMLLoader gameOverSceneLoader = new FXMLLoader(getClass().getResource("/fxml/gameOverScene.fxml"));  
-            Parent gameOverPane = gameOverSceneLoader.load(); 
-            gameOverController = gameOverSceneLoader.getController(); 
-            gameOverController.setApplication(this);
-            gameOverScene = new Scene(gameOverPane);
-            
-        }
-        catch (Exception e) {
-            System.out.println("GameOverScene Error: " + e);
-        }
+        FXMLLoader highScoresSceneLoader = new FXMLLoader(getClass().getResource("/fxml/highScoresScene.fxml"));   
+        AnchorPane highScoresPane = highScoresSceneLoader.load(); 
+        HighScoresSceneController highScoresController = highScoresSceneLoader.getController(); 
+        highScoresController.setApplication(this, loginController);
+        highScoresScene = new Scene(highScoresPane);
+
+        FXMLLoader gameOverSceneLoader = new FXMLLoader(getClass().getResource("/fxml/gameOverScene.fxml"));  
+        Parent gameOverPane = gameOverSceneLoader.load(); 
+        gameSceneController = gameOverSceneLoader.getController(); 
+        gameSceneController.setApplication(this, loginController);
+        gameOverScene = new Scene(gameOverPane);
     }
 
+    /**
+     * Avaa näkymän esille 
+     */
     @Override
     public void start(Stage stage) throws Exception {
         this.stage = stage;
+        stage.setResizable(false);
         stage.setTitle("Matopeli");
-        // setIntroScene();
         setLoginScene();
-        // setRegisterScene();
         stage.show();
     }
 
@@ -89,12 +80,23 @@ public class Ui extends Application {
         stage.setScene(registerScene); 
     }
 
+    public void setHighScoresScene() {
+        stage.setScene(highScoresScene); 
+    }
+
     public void setIntroScene() {
         stage.setScene(introScene);   
     }
 
-    public void setGameWindow() {
-        gameScene = gameOverController.getGameWindow().getGameScene();
+    /**
+     * Vaihtaa pelinäkymään ja välittää värivaihtoehdot eteenpäin
+     * 
+     * @param snakeColor madon väri
+     * @param foodColor ruuan väri
+     * @param backgroundIsBlack taustan väri 
+     */
+    public void setGameWindow(Color snakeColor, Color foodColor, boolean backgroundIsBlack) {
+        gameScene = gameSceneController.getGameWindow().getGameScene(snakeColor, foodColor, backgroundIsBlack);
         stage.setScene(gameScene); 
     }
 

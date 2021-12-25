@@ -10,11 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.util.Properties;
-import java.io.FileInputStream;
-import java.io.IOException;
-
-import matopeli.dao.UserDao;
+import matopeli.dao.Dao;
 
 /**
  * Rekisteröinti-näkymän toimintoja käsittelevä luokka
@@ -22,52 +18,43 @@ import matopeli.dao.UserDao;
 
 public class RegisterSceneController implements Initializable {
     private Ui application; 
-    private UserDao user; 
+
+    /**
+     * DAO-rajapinta rekisteröimistä varten
+     */
+    private Dao dao; 
+    
     @FXML
     public TextField usernameField; 
+    
     @FXML
     public PasswordField passwordField; 
+    
     @FXML
     public PasswordField passwordRepeatField; 
+    
     @FXML
     public Label uiMessage; 
 
-    
-    public void setApplication(Ui application) {
+    /**
+     * Yhdistää käyttöliittymään ja hakee loginControllerilta DAO-rajapinnan
+     * 
+     * @param application
+     * @param loginController
+     */
+    public void setApplication(Ui application, LoginSceneController loginController) {
         this.application = application; 
+        dao = loginController.getDao();
+        
     }
 
-/**
-* Aloittaa konfiguroinnin lataamalla tietokannan käyttäen config.properties-tiedostoa
-* 
-*
-* @param url url
-* @param rb  ResourceBundle
-*/
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        start();
-        Properties property = new Properties(); 
-
-        try {
-            property.load(new FileInputStream("config.properties"));
-        } catch (IOException e) {
-            System.out.println("Failed to load Config.properties");
-        }
-
-        String databaseURL = property.getProperty("databaseURL");  
-
-        try {
-            user = new UserDao(databaseURL);
-        } catch (Exception e) {
-            System.out.println("Could not load database!");
-        }
-    }    
-
-
+    /**
+     * Käsittelee rekisteröimistä DAO-rajapinnan kautta
+     * @param event
+     * @throws Exception
+     */
     @FXML
-    public void handleRegistration(ActionEvent event) {
+    public void handleRegistration(ActionEvent event) throws Exception {
 
         uiMessage.setText("");
 
@@ -75,15 +62,19 @@ public class RegisterSceneController implements Initializable {
         String password = passwordField.getText().toLowerCase(); 
         String passwordRepeat = passwordRepeatField.getText().toLowerCase(); 
 
-        System.out.println("Username : " + username);
-        System.out.println("Password : " + password);
-        System.out.println("Repeated : " + passwordRepeat);
-
         if (!password.equals(passwordRepeat)) {
             uiMessage.setText("Salasanat eivät täsmää!");
         } else {
-            if (user.registerUser(username, password)) {
+
+            if (username.contains(" ") || password.contains(" ") || username.length() == 0 || password.length() == 0) {
+                uiMessage.setText("Syötteessä ei saa olla välilyöntejä ja syötteet eivät saa olla tyhjiä!!");
+            }
+
+            else if (dao.registerUser(username, password)) {
                 uiMessage.setText("Rekisteröityminen onnistui!");
+            }
+            else {
+                uiMessage.setText("Käyttäjätunnus on jo olemassa!");
             }
         }
     }
@@ -92,8 +83,8 @@ public class RegisterSceneController implements Initializable {
     public void handleGoToLogin(ActionEvent event) {
         application.setLoginScene();
     }
-    
-    @FXML public void start() {
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
         
-    }
+    }  
 }

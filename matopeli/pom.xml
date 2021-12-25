@@ -23,7 +23,7 @@
             <artifactId>javafx-controls</artifactId>
             <version>15.0.1</version>
         </dependency>
-                <dependency>
+        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>15.0.1</version>
@@ -60,6 +60,7 @@
                 <configuration>
                     <excludes>
                         <exclude>matopeli/ui/**/*</exclude>
+                        <exclude>matopeli/Main*</exclude>
                     </excludes>
                 </configuration>
                 <executions>

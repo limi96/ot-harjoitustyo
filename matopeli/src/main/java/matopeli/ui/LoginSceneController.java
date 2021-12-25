@@ -13,73 +13,64 @@ import javafx.scene.control.TextField;
 
 import java.util.Properties;
 import java.io.FileInputStream;
-import java.io.IOException;
 
 import matopeli.dao.UserDao;
-
+import matopeli.dao.Dao;
 
 /**
- * Kirjautumis-näkymän toimintoja käsittelevä luokka
+ * Kirjautumis-näkymän toimintoja käsittelevä luokka.
+ * Alustaa myös DAO-rajapinnan käytön mahdolliseksi muille näkymien kontrollereille. 
  */
-
 
 public class LoginSceneController implements Initializable {
 
     private Ui application; 
-    private UserDao user; 
+    /**
+     * Kirjautumista käsittelevä DAO-rajapinta 
+     */
+    public Dao dao; 
+    public String username; 
+    public String password; 
+
     @FXML
     public TextField usernameField; 
+
     @FXML
     public PasswordField passwordField; 
+
     @FXML
     public Label errorMessage; 
 
-    public void setApplication(Ui application) {
+    public void setApplication(Ui application) throws Exception {
         this.application = application; 
+        start();
     }
-/**
-* Aloittaa konfiguroinnin lataamalla tietokannan käyttäen config.properties-tiedostoa
-* 
-*
-* @param url url
-* @param rb  ResourceBundle
-*/
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        start();
-        Properties property = new Properties(); 
-        
-        try {
-            property.load(new FileInputStream("config.properties"));
-        } catch (IOException e) {
-            System.out.println("Failed to load Config.properties");
-        }
 
-        String databaseURL = property.getProperty("databaseURL");  
-
-        try {
-            user = new UserDao(databaseURL);
-        } catch (Exception e) {
-            System.out.println("Could not load database!");
-        }
     }    
 
+    /**
+     * Käsittelee kirjautumisen 
+     * @throws Exception 
+     */
     @FXML
-    public void handleLogin(ActionEvent event) {
+    public void handleLogin(ActionEvent event) throws Exception {
 
-        String username = usernameField.getText().toLowerCase(); 
-        String password = passwordField.getText().toLowerCase(); 
+        username = usernameField.getText().toLowerCase(); 
+        password = passwordField.getText().toLowerCase(); 
         
-        if (user.loginSuccess(username, password)) {
-            application.setIntroScene();
-        } else {
-            errorMessage.setText("Kirjautuminen epäonnistui!"); 
+        if (username.contains(" ") || password.contains(" ") || username.length() == 0 || password.length() == 0) {
+            errorMessage.setText("Syötteessä ei saa olla välilyöntejä ja syötteet eivät saa olla tyhjiä!!"); 
         }
-    }
-
-    @FXML
-    public void handleGoToIntro(ActionEvent event) {
-        application.setIntroScene();
+        else {
+            if (dao.loginSuccess(username, password)) {
+                application.setIntroScene();
+            } else {
+                errorMessage.setText("Kirjautuminen epäonnistui!"); 
+            }
+        }
     }
     
     @FXML
@@ -87,7 +78,29 @@ public class LoginSceneController implements Initializable {
         application.setRegisterScene();
     }
 
-    @FXML public void start() {
-        
+    public String getUsername() {
+        return username; 
     }
+
+    public Dao getDao() {
+        return dao; 
+    }
+    /**
+     * Aloittaa konfiguroinnin.
+     * Lataa config.properties tiedoston, jolla alustaa tietokannan
+     * Luo ohjelmistolle DAO-rajapinnan, mitä muut näkymät käyttävät
+     * @throws Exception
+     */
+    @FXML 
+    public void start() throws Exception {
+        Properties property = new Properties(); 
+        property.load(new FileInputStream("config.properties"));
+        
+        String databaseURL = property.getProperty("databaseURL");  
+        dao = new UserDao(databaseURL);
+    
+    }
+
+
+
 }

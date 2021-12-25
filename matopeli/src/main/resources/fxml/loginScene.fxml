@@ -14,15 +14,15 @@
             <Font size="45.0" />
          </font>
       </Label>
-      <Button layoutX="213.0" layoutY="284.0" mnemonicParsing="false" onAction="#handleGoToRegister" prefHeight="38.0" prefWidth="177.0" text="Rekisteröidy" />
-      <Button layoutX="215.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="32.0" prefWidth="171.0" text="Kirjaudu" />
       <TextField fx:id="usernameField" layoutX="215.0" layoutY="144.0" />
       <PasswordField id="password" fx:id="passwordField" layoutX="215.0" layoutY="200.0" />
       <Label layoutX="251.0" layoutY="121.0" text="Käyttäjätunnus" />
       <Label layoutX="269.0" layoutY="176.0" text="Salasana" />
-      <Label fx:id="errorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="141.0" layoutY="342.0" prefHeight="38.0" prefWidth="316.0">
+      <Label fx:id="errorMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="329.0" prefHeight="68.0" prefWidth="591.0" wrapText="true">
          <font>
-            <Font size="18.0" />
+            <Font size="15.0" />
          </font></Label>
+      <Button layoutX="214.0" layoutY="239.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="32.0" prefWidth="171.0" text="Kirjaudu" />
+      <Button layoutX="212.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleGoToRegister" prefHeight="38.0" prefWidth="177.0" text="Rekisteröidy" />
    </children>
 </AnchorPane>

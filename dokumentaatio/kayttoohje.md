@@ -43,9 +43,42 @@ Paina lopuksi "takaisin"-nappia niin pääset takaisin kirjautumis-näkymään j
 
 # Pelin aloittaminen
 
-Kun olet kirjautunut sisään pääset aloitusnäkymään. Paina "Pelaa peliä :)"-painiketta aloittaaksesi pelin. 
+Kun olet kirjautunut sisään pääset aloitusnäkymään eli Intro-näkymään. Voit valita madon ja ruuan värejä värivalikkojen kautta. Näistä en saanut valitettavasti kuvia, koska se sulkeutuu aina, kun ottaa kuvaa (esim. Print Screenin kautta). Taustan väriksi voi valita mustan tai valkosen radio-painikkeiden kautta. Näkymässä on myös ohjetekstit. Lue ne huolellisesti läpi. 
+
+Paina "Pelaa peliä :)"-painiketta aloittaaksesi pelin. 
+Jos haluat nähdä nykyiset highscoret paina "Katso highscoret!"-nappia.
+Jos haluat kirjautua ulos, paina "kirjaudu ulos" -nappia niin pääset takaisin kirjautumisnäkymään. 
 
 <img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/pelinpelaaminen.png">
+
+# Pelin pelaaminen
+
+Peliä voit pelata nuolinäppäimillä tai WASD-näppäimillä. 
+Voit tauottaa pelin p-näppäimellä, jolloin tulee "Peli tauotettu" -teksti näkyviin ja pelin on tilapäisesti pysäytetty. Kun painat toisen kerran p-näppäintä, peli jatkuu. 
+
+Seiniin ei saa osua, eikä mato saa myöskään osua itseensä, muuten peli päättyy. 
+Ylävasemalla näkyy sininen "Pisteet : 0" teksti, jossa näkyy pistetilanne. 
+
+<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/pelinakyma.png">
+
+
+# Pelin päättyminen 
+
+Pelin päättyessä näet päättymishetken pistetilanteesi ja voit jatkaa siitä erilaisiin näkymiin. Jos sait pisteitä enemmän kuin koskaan aiemmin, tämä pistemäärä päivittyy tietokantaan. 
+
+"Aloita uusi peli!" -nappi käynnistää pelin uudelleen samoilla väreillä kuin, mitä valitsit ensimmäisen kerran peliä pelattaessa. 
+Kuten aiemmin napista "Katso highscoret!" pääset katsomaan highscoreja. 
+"Takaisin introon "-napista pääset samaan kohtaan kuin pelin aloittaminen -kohdassa kuvattuun Intro-näkymään. 
+"Kirjaudu ulos" -nappi toimii samalla tavalla kuin Intro-näkymässä. 
+
+<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/pelipaattyi.png">
+
+# Highscoret tarkastaminen
+
+"Katso highscoret!" -nappia painamalla siirryt highscoret-näkymään, joka tulostaa esille korkeimmat pistemäärät, mitä ollaan saavutettu. Huomaa, että jos   ```config.properties```-tiedosto poistetaan ja luodaan uudelleen, pistemäärät katoavat. 
+
+Pääset tästä näkymästä takaisin introon painamala "Takaisin introon!" -nappia. 
+
 
 
 

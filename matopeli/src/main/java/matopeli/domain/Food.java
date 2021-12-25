@@ -15,16 +15,17 @@ public class Food {
  * Käytetään satunnaisen uuden sijainnin luomiseen 
  */
     Random rnd = new Random(); 
-
     private Rectangle food; 
+
 /**
  * Alustetaan ruoka olio Rectangle-luokan avulla
  * Samalla asetetaan heti satunnainen sijainti randomPosition()-metodin avulla
- * @param food 
+ * @param food SnakeClass:ilta saatu Rectangle-olio ruuan määrittelemiseksi.
+ * @param foodColor ruualle valittu väri
  */
-    public Food(Rectangle food) {
+    public Food(Rectangle food, Color foodColor) {
         this.food = food; 
-        this.food.setFill(Color.RED);
+        this.food.setFill(foodColor);
         randomPosition();
     }
 /**
