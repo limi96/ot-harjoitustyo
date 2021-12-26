@@ -36,12 +36,6 @@ public class HighScoresSceneController implements Initializable {
     public Label nameLabel; 
 
     /**
-     * Tulostaulun ollessa tyhjä kertoo käyttäjälle siitä
-     */
-    @FXML
-    public Label emptyLabel;
-
-    /**
      * Hae loginControllerilta alussa luotu DAO-rajapinta
      * start() kautta asettaa tulostaulun näkyville
      * @param application Linkitetty Ui-käsittelijä
@@ -74,23 +68,18 @@ public class HighScoresSceneController implements Initializable {
     public void start() throws Exception {
 
         ArrayList<String> results = dao.fetchHighScores(); 
-        
-        if (results.isEmpty()) {
-            emptyLabel.setText("Tulostaulu on tyhjä :(");
+    
+        String nameText = "Nimi \n\n";
+        String scoreText = "Pisteet \n\n";
 
-        } else {
-            String nameText = "Nimi \n\n";
-            String scoreText = "Pisteet \n\n";
-    
-            for (String result : results) {
-                String[] resultSplit = result.split(","); 
-                nameText += resultSplit[0] + "\n"; 
-                scoreText += resultSplit[1] + "\n"; 
-            }
-    
-            nameLabel.setText(nameText);
-            scoreLabel.setText(scoreText);
+        for (String result : results) {
+            String[] resultSplit = result.split(","); 
+            nameText += resultSplit[0] + "\n"; 
+            scoreText += resultSplit[1] + "\n"; 
         }
+
+        nameLabel.setText(nameText);
+        scoreLabel.setText(scoreText);
     }
     
    

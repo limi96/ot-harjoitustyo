@@ -20,7 +20,6 @@
 |  12.12  |  2h   |Dao:n toteuttaminen |
 |  13.12  |  2h   |Testien kirjoittaminen Dao:lle|
 |  14.12  |  4h   |Dao:n ja Näkymien implementointi pääohjelmaan. Dokumentaation kirjoittaminen|
-
 |  21.12  |  2h   |Värivaihtoehtojen lisääminen|
 |  23.12  |  2h   |HighScoret näkymän lisääminen|
 |  24.12  |  2h   |Testien kirjoittaminen, lisätty FoodTest|

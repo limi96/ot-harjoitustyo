@@ -60,7 +60,7 @@ public class IntroSceneController implements Initializable {
     }
 
     @FXML
-    public void handleToHighScores(ActionEvent event) {
+    public void handleToHighScores(ActionEvent event) throws Exception {
         application.setHighScoresScene();
     }
 

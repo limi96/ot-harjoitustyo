@@ -20,6 +20,7 @@ public class Ui extends Application {
 
     public GameSceneController gameSceneController;
     public LoginSceneController loginController; 
+    public HighScoresSceneController highScoresController;
 
     /**
      * Luo Ui-pohjan kaikille näkymien luokille. Käsittelee näkymien latauksen sekä siirtymisen näkymästä toiseen
@@ -49,7 +50,7 @@ public class Ui extends Application {
 
         FXMLLoader highScoresSceneLoader = new FXMLLoader(getClass().getResource("/fxml/highScoresScene.fxml"));   
         AnchorPane highScoresPane = highScoresSceneLoader.load(); 
-        HighScoresSceneController highScoresController = highScoresSceneLoader.getController(); 
+        highScoresController = highScoresSceneLoader.getController(); 
         highScoresController.setApplication(this, loginController);
         highScoresScene = new Scene(highScoresPane);
 
@@ -80,7 +81,8 @@ public class Ui extends Application {
         stage.setScene(registerScene); 
     }
 
-    public void setHighScoresScene() {
+    public void setHighScoresScene() throws Exception {
+        highScoresController.start();
         stage.setScene(highScoresScene); 
     }
 

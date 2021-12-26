@@ -54,6 +54,6 @@ Sovellus alkaa kirjautumisnäkymästä, josta voi siirtyä joko suoraan Intro-n�
 - :heavy_check_mark: Käyttäjä näkee oman tuloksensa. 
 - :heavy_check_mark: Käyttäjä voi pelata pelin uudestaan
 - :heavy_check_mark: Käyttäjä voi siirtyä tarkistamaa parhaimpia tuloksia
-- :heavy_check_mark: Jos on kyseessä tyhjä tulostaulu, käyttäjä näkee tekstin, jossa tämä ilmoitetaan. 
+- :heavy_check_mark: Tietokantaan tallennetaan vain käyttäjän paras tulos. Tällöin ei tule highscores-näkymään ei tule monta listausta samalta käyttäjältä
 - :heavy_check_mark: Käyttäjä voi kirjautua ulos
-- :heavy_check_mark: Käyttäjien tiedot pysyvät tallessa sovelluksen suljettua edellyttäen, että gameDatabse.db-tietokantatiedosto pysyy tallella. 
+- :heavy_check_mark: Käyttäjien tiedot pysyvät tallessa sovelluksen suljettua edellyttäen sitä, että gameDatabse.db-tietokantatiedosto pysyy tallella. 
