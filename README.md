@@ -32,6 +32,10 @@ Sovellus on kirjoitettu Javan versiolle 11 ja käyttää JavaFX:ää.
 
 ## Sovelluksen käyttö
 
+Jos haluat suorittaa peliä .jar-tiedoston kautta, tässä on [käyttöohjeet](https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md).
+
+Alla olevat ohjeet koskevat niitä, jotka haluavat tallentaan repositorion ja suorittaa ohjelman sitä kautta. 
+
 HUOM! Siirry ensiksi matopeli-hakemistoon. Vasta sitten komennot toimivat. 
 
 ### Käynnistäminen

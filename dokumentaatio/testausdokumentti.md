@@ -50,3 +50,6 @@ JavaFX:ssä pystytään tarkistamaan vain Rectangle-muuttujan keskikohtaa getTra
 
 Ohjelma ei toimi ollenkaan jos ```config.properties```-tiedosto ei löydy samasta suoritettavasta kansiosta. Ohjelman pystyy suorittamaan vain komentorivin kautta ```java -jar ``` -komennon kautta.
 
+Jos ohjelmaa suorittaessa suoritettava kone sammuu tai tapahtuu muuta odottamatonta, SQLite yhteys voi jäädä päälle. 
+Tällöin ohjelman käynnistyessä uudelleen tapahtuu SQLiteException: SQLITE_BUSY The database file is locked (database is locked). Tämä johtuu siitä, että on jo valmiiksi toinen suoritus, joka lukee kyseistä gameDatabase.db-tiedostoa. Tässä tapauksessa voi joko muokata config.properties-tiedostoa siten, että muutetaan databaseURL-arvoksi joku toinen nimi tai käynnistetään kone uudestaan. 
+
