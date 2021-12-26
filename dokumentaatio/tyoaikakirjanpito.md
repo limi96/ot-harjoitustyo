@@ -25,8 +25,9 @@
 |  23.12  |  2h   |HighScoret näkymän lisääminen|
 |  24.12  |  2h   |Testien kirjoittaminen, lisätty FoodTest|
 |  25.12  |  2h   |Dokumentaation päivittäminen|
+|  26.12  |  2h   |Sekvenssikaavioiden päivittäminen ja viimeistely|
 
-Yhteensä: 50h  
+Yhteensä: 52h  
 
 
 

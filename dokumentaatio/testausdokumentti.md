@@ -3,6 +3,10 @@
 Ohjelman testaaminen on toteutettu kokonaisuudessan JUnitilla. Koska tällä kurssilla emme testaa UI-liittyviä asioita, 
 UI-liittyvät osat ovat testattu manuaalisesti ohjelman kehityksen aikana. 
 
+Sovellus ei aiheuta Exceptioneiden tulostumista, koska tämä oli arvosteluperusteissa kielletty. Siksi esimerkiksi olemassaolevien käyttäjätunnuksen tarkastaminen ei tapahdu tietokantatasolla vaan pelkästään ohjelman käyttöliittymässä. (Käytössä oli ennen TEXT UNIQUE sarake tietokannassa).
+
+SnakeClass-luokassa on myös yksi pitkä metodi, joka on 24-riviä johtuen siitä, että se käsittelee kaikki suunnan muutokset ja koodi muuttuisi huomattavasti monimutkaisemmaksi, jos toiminnot jaotellaan pienemmiksi metodeiksi. Siksi poikkeusta ei ole korjattu pois. 
+
 ## Yksikkö -ja integraatiotestaus
 
 ### DAO:n totetutus (UserDao-luokka)
@@ -33,7 +37,7 @@ Koska käyttöliittymä on jätetty pois, ohjelman järjestelmätestaus on suori
 
 ### Asennus ja konfigurointi 
 
-
+Sovellus toimii käyttöohjeen kuvaamalla tavalla Linux-ympäristössä, kunhan suoritettavassa hakemistosta löytyy ```config.properties``` -tiedosto ja koneessa toimii Java 11, JavaFX ja SQLite normaalisti. 
 
 ### Toiminnallisuudet 
 

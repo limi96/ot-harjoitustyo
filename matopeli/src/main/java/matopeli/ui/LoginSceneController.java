@@ -48,7 +48,7 @@ public class LoginSceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
     }    
 
     /**
@@ -67,6 +67,7 @@ public class LoginSceneController implements Initializable {
         else {
             if (dao.loginSuccess(username, password)) {
                 application.setIntroScene();
+                errorMessage.setText(""); 
             } else {
                 errorMessage.setText("Kirjautuminen epäonnistui!"); 
             }
@@ -75,6 +76,7 @@ public class LoginSceneController implements Initializable {
     
     @FXML
     public void handleGoToRegister(ActionEvent event) {
+        errorMessage.setText(""); 
         application.setRegisterScene();
     }
 
@@ -93,6 +95,7 @@ public class LoginSceneController implements Initializable {
      */
     @FXML 
     public void start() throws Exception {
+        
         Properties property = new Properties(); 
         property.load(new FileInputStream("config.properties"));
         

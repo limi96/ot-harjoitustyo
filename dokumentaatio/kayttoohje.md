@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tiedosto [Matopeli-1.0-SNAPSHOT.jar](https://github.com/limi96/ot-harjoitustyo/releases/tag/viikko6)
+Lataa tiedosto [Matopeli-1.0-SNAPSHOT.jar](https://github.com/limi96/ot-harjoitustyo/releases/tag/loppupalautus)
 
 # Konfigurointi
 
@@ -49,7 +49,7 @@ Paina "Pelaa peliä :)"-painiketta aloittaaksesi pelin.
 Jos haluat nähdä nykyiset highscoret paina "Katso highscoret!"-nappia.
 Jos haluat kirjautua ulos, paina "kirjaudu ulos" -nappia niin pääset takaisin kirjautumisnäkymään. 
 
-<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/pelinpelaaminen.png">
+<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/intronakyma.png">
 
 # Pelin pelaaminen
 
@@ -79,7 +79,7 @@ Kuten aiemmin napista "Katso highscoret!" pääset katsomaan highscoreja.
 
 Pääset tästä näkymästä takaisin introon painamala "Takaisin introon!" -nappia. 
 
-
+<img src="https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/highscoret.png">
 
 
 

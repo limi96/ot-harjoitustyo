@@ -3,14 +3,18 @@
 ## Matopeli
 
 Tämä projekti on osana Helsingin yliopiston Ohjelmistotekniikka-kurssia. 
-
 Sovelluksen avulla on mahdollista pelata matopeliä. Sovellus mahdollistaa myös pisteiden tallenuksen käyttäjänimellä.
+Lopuksi voidaan tarkistaa highscores-näkymästä käyttäjien Top 5 korkeimmat pisteet. 
 
 ## Javan versio
 
 Sovellus on kirjoitettu Javan versiolle 11 ja käyttää JavaFX:ää. 
 
 ## Dokumentaatio
+
+[Käyttöohje](https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+
+[Testausdokumentti](https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/testausdokumentti.md)
 
 [Vaatimusmäärittely](https://github.com/limi96/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
@@ -21,6 +25,10 @@ Sovellus on kirjoitettu Javan versiolle 11 ja käyttää JavaFX:ää.
 ## Release
 
 [Viikko 5 release](https://github.com/limi96/ot-harjoitustyo/releases/tag/viikko5)
+
+[Viikko 6 release](https://github.com/limi96/ot-harjoitustyo/releases/tag/viikko6)
+
+[Loppupalautus](https://github.com/limi96/ot-harjoitustyo/releases/tag/loppupalautus)
 
 ## Sovelluksen käyttö
 

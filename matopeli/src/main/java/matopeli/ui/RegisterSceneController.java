@@ -82,9 +82,16 @@ public class RegisterSceneController implements Initializable {
     @FXML
     public void handleGoToLogin(ActionEvent event) {
         application.setLoginScene();
+        uiMessage.setText(""); 
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+    
     }  
+
+    @FXML 
+    public void start() throws Exception {
+             
+    }
+
 }
