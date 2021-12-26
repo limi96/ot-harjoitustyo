@@ -70,6 +70,10 @@ public class RegisterSceneController implements Initializable {
                 uiMessage.setText("Syötteessä ei saa olla välilyöntejä ja syötteet eivät saa olla tyhjiä!!");
             }
 
+            else if (username.length() > 5) {
+                uiMessage.setText("Nimi ei saa olla pitempi kuin 5 kirjainta!"); 
+            }
+
             else if (dao.registerUser(username, password)) {
                 uiMessage.setText("Rekisteröityminen onnistui!");
             }

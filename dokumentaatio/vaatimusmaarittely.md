@@ -24,6 +24,7 @@ Sovellus alkaa kirjautumisnäkymästä, josta voi siirtyä joko suoraan Intro-n�
 - :heavy_check_mark: Käyttäjä voi kirjautua sisään jo olemassaolevilla tunnuksilla
 - :heavy_check_mark: Kirjautuessa ja rekisteröinnin aikana tarkistetaan tyhjät ja välilyöntejä sisältävät syötteet 
 - :heavy_check_mark: Rekisteröinnin aikana tarkistetaan, onko olemassa jo samanniminen käyttäjätunnus
+- :heavy_check_mark: Rekisteröinnin aikana tarkistetaan, että nimi ei ylitä 5 kirjainta. 
 - :heavy_check_mark: Virhetekstit eivät jää lojumaan siirtyessä näkymästä toiseen kirjautumis -ja rekisteröintinäkymissä. 
 
 ### Kirjautumisen jälkeen:

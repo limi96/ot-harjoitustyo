@@ -15,7 +15,7 @@ testDatabaseURL=jdbc:sqlite:testDatabase.db
 
 **Huom!**
 Jos ohjelmaa suorittaessa suoritettava kone sammuu tai tapahtuu muuta odottamatonta, SQLite yhteys voi jäädä päälle. 
-Tällöin ohjelman käynnistyessä uudelleen tapahtuu SQLiteException: SQLITE_BUSY The database file is locked (database is locked). Tämä johtuu siitä, että on jo valmiiksi toinen suoritus, joka lukee kyseistä gameDatabase.db-tiedostoa. Tässä tapauksessa voi joko muokata config.properties-tiedostoa siten, että muutetaan databaseURL-arvoksi joku toinen nimi tai käynnistetään kone uudestaan. Uudelleen nimeäminen voisi olla vaikka databaseURL=jdbc:sqlite:newGameDatabase.db
+Tällöin ohjelman käynnistyessä uudelleen tapahtuu SQLiteException: SQLITE_BUSY The database file is locked (database is locked). Tämä johtuu siitä, että on jo valmiiksi toinen suoritus, joka lukee kyseistä gameDatabase.db-tiedostoa. Tässä tapauksessa voi joko muokata config.properties-tiedostoa siten, että muutetaan databaseURL-arvoksi joku toinen nimi. Kyseessä voi olla myös se, että on jo olemassa SQLite yhteys, joka lukee "users"-nimistä tietokantataulua, jolloin on pakko käynnistää kone uudestaan, jotta ohjelman voi suorittaa. 
 
 # Ohjelman käynnistäminen 
 
@@ -41,6 +41,7 @@ Jos ei ole käyttäjätunnuksia, paina "rekisteröydy"-nappia.
 
 Syötä haluttu käyttäjätunnus ja salasana ja kirjoita sama salasana uudestaan. Tämän jälkeen paina "rekisteröidy"-nappia. 
 Huomioi, että tietokanta ei salli samoja käyttäjätunnuksia, joten valitse toinen käyttäjätunnus, jos se on jo varattu. 
+Huomaa myös, että käyttäjätunnuksessa ei saa olla enemmän kuin 5 kirjainta!
 
 Paina lopuksi "takaisin"-nappia niin pääset takaisin kirjautumis-näkymään ja voit kirjautua sisään. 
 
